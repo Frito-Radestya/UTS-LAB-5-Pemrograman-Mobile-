@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "categoryId": "teknologi",
+  "questions": [
+    {
+      "difficulty": "pemula",
+      "prompt": "Siapa yang mencetuskan World Wide Web?",
+      "options": [
+        "Bill Gates",
+        "Tim Berners-Lee",
+        "Steve Jobs",
+        "Larry Page"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tim Berners-Lee merancang WWW di CERN pada 1989 sebagai cara berbagi informasi.",
+      "funFact": "Halaman web pertama masih diarsipkan oleh CERN."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "AI adalah singkatan dari…",
+      "options": [
+        "Automatic Internet",
+        "Analog Input",
+        "Artificial Intelligence",
+        "Advanced Interface"
+      ],
+      "correctIndex": 2,
+      "explanation": "Artificial Intelligence merujuk pada sistem yang meniru kecerdasan manusia.",
+      "funFact": "Istilah AI dipopulerkan pada konferensi Dartmouth tahun 1956."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Kode HTTP 404 berarti…",
+      "options": [
+        "Server error",
+        "Tidak ditemukan",
+        "Akses ditolak",
+        "Pengalihan"
+      ],
+      "correctIndex": 1,
+      "explanation": "404 menandakan sumber yang diminta tidak ditemukan di server.",
+      "funFact": "Nama “404” berasal dari ruangan di CERN yang pernah dikaitkan dengan web awal."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "RAM pada komputer berfungsi sebagai…",
+      "options": [
+        "Penyimpanan permanen",
+        "Pendingin prosesor",
+        "Memori kerja sementara",
+        "Kartu grafis"
+      ],
+      "correctIndex": 2,
+      "explanation": "RAM menyimpan data yang sedang diproses agar CPU dapat mengaksesnya cepat.",
+      "funFact": "Isi RAM hilang ketika komputer dimatikan."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Protokol aman untuk situs web adalah…",
+      "options": [
+        "HTTP",
+        "FTP",
+        "HTTPS",
+        "SMTP"
+      ],
+      "correctIndex": 2,
+      "explanation": "HTTPS menambahkan enkripsi TLS pada HTTP untuk melindungi data.",
+      "funFact": "Gembok di bilah alamat menandakan koneksi HTTPS."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Perangkat yang meneruskan data antar jaringan disebut…",
+      "options": [
+        "Monitor",
+        "Router",
+        "Speaker",
+        "Scanner"
+      ],
+      "correctIndex": 1,
+      "explanation": "Router menentukan jalur paket data dari satu jaringan ke jaringan lain.",
+      "funFact": "Nama “router” berasal dari kata route, yaitu rute atau jalur."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Satuan penyimpanan data yang lebih besar dari gigabyte adalah…",
+      "options": [
+        "Megabyte",
+        "Kilobyte",
+        "Terabyte",
+        "Byte"
+      ],
+      "correctIndex": 2,
+      "explanation": "1 terabyte setara dengan 1.024 gigabyte.",
+      "funFact": "Banyak layanan cloud kini mengukur kuota dalam terabyte."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Sistem operasi sumber terbuka yang populer adalah…",
+      "options": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "iPadOS"
+      ],
+      "correctIndex": 2,
+      "explanation": "Linux adalah kernel sumber terbuka yang menjadi dasar banyak distribusi.",
+      "funFact": "Android dibangun di atas kernel Linux."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Phishing adalah upaya…",
+      "options": [
+        "Mempercepat internet",
+        "Mencuri data dengan tipuan",
+        "Memperbaiki virus",
+        "Mencadangkan file"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phishing menipu pengguna agar menyerahkan kata sandi atau data pribadi.",
+      "funFact": "Nama phishing meniru “fishing”: memancing korban dengan umpan."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "CPU adalah kependekan dari…",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Utility",
+        "Core Program Upload",
+        "Control Power Unit"
+      ],
+      "correctIndex": 0,
+      "explanation": "CPU adalah unit pemroses pusat yang menjalankan instruksi program.",
+      "funFact": "Kecepatan CPU sering diukur dalam gigahertz (GHz)."
+    }
+  ]
+}

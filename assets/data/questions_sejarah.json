@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "categoryId": "sejarah",
+  "questions": [
+    {
+      "difficulty": "pemula",
+      "prompt": "Proklamasi kemerdekaan Indonesia dibacakan pada…",
+      "options": [
+        "1 Juni 1945",
+        "17 Agustus 1945",
+        "10 November 1945",
+        "28 Oktober 1928"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soekarno dan Hatta memproklamasikan kemerdekaan pada 17 Agustus 1945.",
+      "funFact": "Naskah proklamasi diketik oleh Sayuti Melik."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Candi Borobudur terletak di provinsi…",
+      "options": [
+        "Jawa Timur",
+        "Bali",
+        "Jawa Tengah",
+        "Yogyakarta"
+      ],
+      "correctIndex": 2,
+      "explanation": "Borobudur berada di Magelang, Jawa Tengah.",
+      "funFact": "Borobudur adalah candi Buddha terbesar di dunia."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Kerajaan maritim besar di Nusantara yang berpusat di Sumatera adalah…",
+      "options": [
+        "Majapahit",
+        "Sriwijaya",
+        "Mataram",
+        "Tarumanegara"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sriwijaya adalah kerajaan maritim yang menguasai selat Malaka.",
+      "funFact": "Prasasti Kedukan Bukit menjadi salah satu bukti Sriwijaya."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Penemu mesin cetak di Eropa adalah…",
+      "options": [
+        "Galileo",
+        "Johannes Gutenberg",
+        "Newton",
+        "Leonardo da Vinci"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gutenberg mengembangkan mesin cetak bergerak sekitar 1440-an.",
+      "funFact": "Alkitab Gutenberg termasuk buku cetak paling terkenal."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Sumpah Pemuda diikrarkan pada tahun…",
+      "options": [
+        "1908",
+        "1928",
+        "1945",
+        "1998"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kongres Pemuda II menghasilkan Sumpah Pemuda pada 28 Oktober 1928.",
+      "funFact": "Lagu Indonesia Raya pertama kali diperdengarkan saat kongres itu."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Piramida Giza dibangun oleh peradaban…",
+      "options": [
+        "Yunani",
+        "Romawi",
+        "Mesir Kuno",
+        "Maya"
+      ],
+      "correctIndex": 2,
+      "explanation": "Piramida Giza dibangun sebagai makam firaun Mesir Kuno.",
+      "funFact": "Piramida Khufu adalah satu-satunya Keajaiban Dunia Kuno yang masih berdiri."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "VOC didirikan oleh pedagang dari…",
+      "options": [
+        "Inggris",
+        "Spanyol",
+        "Belanda",
+        "Portugal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vereenigde Oostindische Compagnie adalah kongsi dagang Belanda.",
+      "funFact": "VOC sering disebut perusahaan multinasional pertama di dunia."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Ibukota Majapahit berada di daerah yang kini disebut…",
+      "options": [
+        "Solo",
+        "Trowulan",
+        "Banten",
+        "Palembang"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pusat Majapahit diperkirakan berada di Trowulan, Jawa Timur.",
+      "funFact": "Kitab Negarakertagama menggambarkan kejayaan Majapahit."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Perang Dunia II berakhir pada tahun…",
+      "options": [
+        "1918",
+        "1939",
+        "1945",
+        "1950"
+      ],
+      "correctIndex": 2,
+      "explanation": "Perang Dunia II berakhir tahun 1945 setelah kekalahan Poros.",
+      "funFact": "Hari kemenangan di Eropa diperingati setiap 8 Mei."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Aksara yang digunakan kerajaan Jawa kuno antara lain…",
+      "options": [
+        "Hieroglif",
+        "Hanacaraka / Jawa",
+        "Rune",
+        "Sirilik"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aksara Jawa berkembang dari aksara Brahmi melalui Pallawa dan Kawi.",
+      "funFact": "Aksara Jawa juga disebut hanacaraka."
+    }
+  ]
+}
