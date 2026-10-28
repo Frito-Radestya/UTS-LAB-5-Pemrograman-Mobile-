@@ -9,6 +9,7 @@ import 'package:kage/data/repositories/progress_repository.dart';
 import 'package:kage/data/repositories/quiz_repository.dart';
 import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/history/history_controller.dart';
+import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/models/models.dart';
 
@@ -27,6 +28,7 @@ class AppServices {
 
     auth = AuthController(repository: this.authRepository);
     history = HistoryController(repository: this.historyRepository);
+    progress = ProgressController(repository: this.progressRepository);
     quiz = QuizController(
       onCompleted: _recordQuizResult,
       questions: this.quizRepository,
@@ -49,6 +51,7 @@ class AppServices {
 
   late final AuthController auth;
   late final HistoryController history;
+  late final ProgressController progress;
   late final QuizController quiz;
   late final AuthRepository authRepository;
   late final HistoryRepository historyRepository;
@@ -58,10 +61,12 @@ class AppServices {
 
   void _recordQuizResult(QuizResult result) {
     history.addResult(result);
+    progress.addXp((result.score * result.difficulty.xpMultiplier).round());
   }
 
   void dispose() {
     quiz.dispose();
+    progress.dispose();
     history.dispose();
     auth.dispose();
   }
