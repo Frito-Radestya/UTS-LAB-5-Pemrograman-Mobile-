@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +25,7 @@ import 'package:kage/features/settings/bantuan_page.dart';
 import 'package:kage/features/settings/pengaturan_page.dart';
 import 'package:kage/features/settings/settings_controller.dart';
 import 'package:kage/features/splash/splash_page.dart';
+import 'package:kage/l10n/app_localizations.dart';
 import 'package:kage/models/models.dart';
 import 'package:kage/theme/app_theme.dart';
 
@@ -201,6 +203,14 @@ class _KageAppState extends State<KageApp> {
           return MaterialApp.router(
             title: 'KAGE',
             theme: AppTheme.dark(),
+            locale: Locale(settings.localeCode),
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
             routerConfig: _router,
             debugShowCheckedModeBanner: false,
           );
