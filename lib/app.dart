@@ -29,6 +29,8 @@ import 'package:kage/l10n/app_localizations.dart';
 import 'package:kage/models/models.dart';
 import 'package:kage/theme/app_theme.dart';
 
+const double _maxContentWidth = 520;
+
 class KageApp extends StatefulWidget {
   const KageApp({super.key, required this.services});
 
@@ -170,6 +172,34 @@ class _KageAppState extends State<KageApp> {
     );
   }
 
+  Widget _responsiveFrame(BuildContext context, Widget? child) {
+    final media = MediaQuery.maybeOf(context);
+    if (child == null) return const SizedBox.shrink();
+    if (media == null || media.size.width <= _maxContentWidth) return child;
+
+    const frameWidth = _maxContentWidth;
+    return ColoredBox(
+      color: const Color(0xFF05070C),
+      child: Center(
+        child: Container(
+          width: frameWidth,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.55),
+                blurRadius: 42,
+              ),
+            ],
+          ),
+          child: MediaQuery(
+            data: media.copyWith(size: Size(frameWidth, media.size.height)),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     _router.dispose();
@@ -212,6 +242,7 @@ class _KageAppState extends State<KageApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             routerConfig: _router,
+            builder: _responsiveFrame,
             debugShowCheckedModeBanner: false,
           );
         },
