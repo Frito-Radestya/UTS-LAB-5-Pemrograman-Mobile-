@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>KAGE Beranda</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap">
+<style>
+body{margin:0}
+a{text-decoration:none}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;position:relative;overflow:hidden;background:#0B0D12;color:#E8E4DD;font-family:'Onest',sans-serif;display:flex;flex-direction:column">
+<div style="position:absolute;left:0;right:0;top:0;height:220px;background:linear-gradient(180deg,#161433 0%,#0B0D12 100%)"></div>
+<div style="position:relative;flex:1;min-height:0;padding:24px 20px 0;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;height:48px">
+<div style="flex:1;min-width:0">
+<h1 style="margin:0;font-size:22px;line-height:28px;font-weight:600">Halo, Frito</h1>
+<p style="margin:0;font-size:14px;line-height:20px;color:#8B909C">Terus belajar, terus berkembang.</p>
+</div>
+<div style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#3b2a4e,#171A22);border:1.5px solid #C9A56A;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:16px;color:#C9A56A" aria-label="Avatar Frito" role="img">F</div>
+</div>
+<div style="margin-top:20px;padding:16px;background:#171A22;border:1px solid #232734;border-radius:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<span style="font-size:14px;color:#8B909C">Progres Belajar</span>
+<span style="font-size:14px;font-weight:600;color:#C9A56A">60%</span>
+</div>
+<div style="margin-top:4px;font-size:18px;line-height:26px;font-weight:600">3 / 5 Kategori</div>
+<div role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="margin-top:12px;height:6px;border-radius:3px;background:#2A2F3C">
+<div style="width:60%;height:100%;border-radius:3px;background:#B9232C"></div>
+</div>
+</div>
+<div style="margin-top:16px;position:relative;height:176px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#1a1440 0%,#2d1534 55%,#0f1a2a 100%);border:1px solid #2A2F3C">
+<svg viewBox="0 0 240 200" style="position:absolute;right:-10px;top:8px;width:170px;height:142px;opacity:.55;filter:drop-shadow(0 0 14px rgba(185,35,44,.5))" aria-hidden="true">
+<path d="M6 30 Q120 8 234 30 L228 42 Q120 22 12 42 Z" fill="#c12a33"/>
+<rect x="22" y="40" width="196" height="8" fill="#8f1a22"/>
+<rect x="34" y="70" width="172" height="9" fill="#a8222b"/>
+<rect x="48" y="46" width="16" height="154" fill="#b9232c"/>
+<rect x="176" y="46" width="16" height="154" fill="#b9232c"/>
+</svg>
+<div style="position:absolute;right:30px;top:20px;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffbe8,#dcd6c4 62%,#9aa3bd);box-shadow:0 0 24px 6px rgba(200,210,255,.3)"></div>
+<span style="position:absolute;right:90px;top:70px;width:10px;height:7px;border-radius:70% 0 70% 0;background:#e07a96;transform:rotate(40deg);opacity:.8"></span>
+<span style="position:absolute;right:20px;top:110px;width:9px;height:6px;border-radius:70% 0 70% 0;background:#f09ab0;transform:rotate(-20deg);opacity:.8"></span>
+<div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,13,18,.92) 0%,rgba(11,13,18,.5) 55%,rgba(11,13,18,0) 100%)"></div>
+<div style="position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:flex-end;gap:12px">
+<div style="flex:1;min-width:0">
+<span style="display:inline-block;padding:2px 10px;border-radius:10px;border:1px solid #C9A56A;color:#C9A56A;font-size:12px;line-height:18px">Teknologi</span>
+<div style="margin-top:6px;font-size:18px;line-height:26px;font-weight:600">Lanjutkan Petualangan</div>
+<div style="font-size:14px;line-height:20px;color:#B4B8C2">Soal 3 dari 10</div>
+<div role="progressbar" aria-label="Progres kuis Teknologi" aria-valuemin="0" aria-valuemax="10" aria-valuenow="3" style="margin-top:8px;height:4px;border-radius:2px;background:#3a3f4d"><div style="width:30%;height:100%;border-radius:2px;background:#B9232C"></div></div>
+</div>
+<a href="Kuis.dc.html" aria-label="Lanjutkan kuis Teknologi" style="width:48px;height:48px;border-radius:50%;background:#B9232C;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(185,35,44,.5);flex-shrink:0">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="#E8E4DD" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+</a>
+</div>
+</div>
+<div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+<div style="padding:12px 8px;background:#171A22;border:1px solid #232734;border-radius:14px;text-align:center"><div style="font-size:22px;line-height:28px;font-weight:700;color:#C9A56A">10</div><div style="font-size:12px;line-height:16px;color:#8B909C">Total Kuis</div></div>
+<div style="padding:12px 8px;background:#171A22;border:1px solid #232734;border-radius:14px;text-align:center"><div style="font-size:22px;line-height:28px;font-weight:700;color:#C9A56A">78%</div><div style="font-size:12px;line-height:16px;color:#8B909C">Akurasi</div></div>
+<div style="padding:12px 8px;background:#171A22;border:1px solid #232734;border-radius:14px;text-align:center"><div style="font-size:22px;line-height:28px;font-weight:700;color:#C9A56A">3</div><div style="font-size:12px;line-height:16px;color:#8B909C">Streak</div></div>
+</div>
+<div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center">
+<h2 style="margin:0;font-size:18px;line-height:26px;font-weight:600">Kategori Kuis</h2>
+<a href="Kategori.dc.html" style="display:inline-flex;align-items:center;height:44px;font-size:14px;color:#E4545C">Lihat Semua</a>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:0">
+<a href="DetailKategori.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:64px;color:#E8E4DD">
+<div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#3a2a20,#14121a);border:1.5px solid #F0A25A;color:#F0A25A"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
+<span style="font-size:12px;line-height:16px">Sains</span></a>
+<a href="Kategori.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:64px;color:#E8E4DD">
+<div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#1f3358,#10162b);border:1.5px solid #6EB6FF;color:#6EB6FF"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+<span style="font-size:12px;line-height:16px">Teknologi</span></a>
+<a href="Kategori.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:64px;color:#E8E4DD">
+<div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#3a3020,#14121a);border:1.5px solid #E0B86A;color:#E0B86A"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5H3z"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18M4 18h16"/></svg></div>
+<span style="font-size:12px;line-height:16px">Sejarah</span></a>
+<a href="Kategori.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:64px;color:#E8E4DD">
+<div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#2d2650,#10102a);border:1.5px solid #B79CFF;color:#B79CFF"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 6-8 12L4 9z"/><path d="M4 9h16M9 9l3 12 3-12M12 3l-3 6M12 3l3 6"/></svg></div>
+<span style="font-size:12px;line-height:16px">Logika</span></a>
+<a href="Kategori.dc.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:64px;color:#E8E4DD">
+<div style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#1c3a33,#0f1a1e);border:1.5px solid #6FD0A0;color:#6FD0A0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+<span style="font-size:12px;line-height:16px">Umum</span></a>
+</div>
+<div style="margin-top:16px;display:flex;align-items:center;gap:12px;padding:14px 16px;background:#171A22;border:1px solid #232734;border-radius:16px">
+<svg width="28" height="28" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink:0"><g fill="#C9A56A"><ellipse cx="20" cy="9" rx="4.5" ry="8"/><ellipse cx="20" cy="9" rx="4.5" ry="8" transform="rotate(72 20 20)"/><ellipse cx="20" cy="9" rx="4.5" ry="8" transform="rotate(144 20 20)"/><ellipse cx="20" cy="9" rx="4.5" ry="8" transform="rotate(216 20 20)"/><ellipse cx="20" cy="9" rx="4.5" ry="8" transform="rotate(288 20 20)"/></g><circle cx="20" cy="20" r="4" fill="#B9232C"/></svg>
+<p style="margin:0;font-size:14px;line-height:20px;color:#C9C5BE">Pengetahuan adalah cahaya yang tak pernah padam.</p>
+</div>
+</div>
+<nav aria-label="Navigasi utama" style="display:flex;height:72px;flex-shrink:0;border-top:1px solid #232734;background:#0f1218;position:relative">
+<a href="Beranda.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#E4545C;font-size:12px;box-shadow:inset 0 2px 0 #B9232C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Beranda</a>
+<a href="Kategori.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg>Kuis</a>
+<a href="Riwayat.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Skor</a>
+<a href="Profil.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg>Profil</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

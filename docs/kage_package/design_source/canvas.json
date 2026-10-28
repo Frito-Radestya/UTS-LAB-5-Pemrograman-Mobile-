@@ -1,0 +1,45 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-23T08:40:00Z" },
+  "title": "KAGE — The Quiz Sanctuary",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "1 · Splash", "is_interactive": true, "radius": 36 },
+    "Login.dc.html": { "x": 470, "y": 0, "w": 390, "h": 844, "title": "2 · Login", "is_interactive": true, "radius": 36 },
+    "Register.dc.html": { "x": 940, "y": 0, "w": 390, "h": 844, "title": "3 · Register", "is_interactive": true, "radius": 36 },
+    "Beranda.dc.html": { "x": 1410, "y": 0, "w": 390, "h": 844, "title": "4 · Beranda", "is_interactive": true, "radius": 36 },
+    "Kategori.dc.html": { "x": 1880, "y": 0, "w": 390, "h": 844, "title": "5 · Pilih Kategori", "is_interactive": true, "radius": 36 },
+    "DetailKategori.dc.html": { "x": 0, "y": 1200, "w": 390, "h": 844, "title": "6 · Detail Kategori", "is_interactive": true, "radius": 36 },
+    "Kuis.dc.html": { "x": 470, "y": 1200, "w": 390, "h": 844, "title": "7 · Halaman Kuis", "is_interactive": true, "radius": 36 },
+    "Penjelasan.dc.html": { "x": 940, "y": 1200, "w": 390, "h": 844, "title": "8 · Penjelasan Jawaban", "is_interactive": true, "radius": 36 },
+    "Hasil.dc.html": { "x": 1410, "y": 1200, "w": 390, "h": 844, "title": "9 · Hasil Kuis", "is_interactive": true, "radius": 36 },
+    "Riwayat.dc.html": { "x": 1880, "y": 1200, "w": 390, "h": 844, "title": "10 · Riwayat Skor", "is_interactive": true, "radius": 36 },
+    "Profil.dc.html": { "x": 0, "y": 2400, "w": 390, "h": 844, "title": "11 · Skor & Profil", "is_interactive": true, "radius": 36 },
+    "Badge.dc.html": { "x": 470, "y": 2400, "w": 390, "h": 844, "title": "12 · Badge & Pencapaian", "is_interactive": true, "radius": 36 },
+    "Pengaturan.dc.html": { "x": 940, "y": 2400, "w": 390, "h": 844, "title": "13 · Pengaturan", "is_interactive": true, "radius": 36 },
+    "DesignSystem.dc.html": { "x": 1410, "y": 2400, "w": 940, "h": 844, "title": "Design System", "radius": 16 }
+  },
+  "order": [
+    "Main.dc.html",
+    "Login.dc.html",
+    "Register.dc.html",
+    "Beranda.dc.html",
+    "Kategori.dc.html",
+    "DetailKategori.dc.html",
+    "Kuis.dc.html",
+    "Penjelasan.dc.html",
+    "Hasil.dc.html",
+    "Riwayat.dc.html",
+    "Profil.dc.html",
+    "Badge.dc.html",
+    "Pengaturan.dc.html",
+    "DesignSystem.dc.html"
+  ],
+  "notes": {
+    "t1": { "x": 0, "y": -300, "text": "KAGE — Masuk & Beranda", "kind": "title1", "maxW": 2270 },
+    "t2": { "x": 0, "y": 900, "text": "KAGE — Kategori & Alur Kuis", "kind": "title1", "maxW": 2270 },
+    "t3": { "x": 0, "y": 2100, "text": "KAGE — Profil, Badge, Pengaturan & Design System", "kind": "title1", "maxW": 2350 }
+  },
+  "designSystems": []
+}
