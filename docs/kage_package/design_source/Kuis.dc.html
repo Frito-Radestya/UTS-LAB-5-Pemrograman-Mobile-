@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>KAGE Halaman Kuis</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap">
+<style>
+body{margin:0}
+a{text-decoration:none}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;position:relative;overflow:hidden;background:#0B0D12;color:#E8E4DD;font-family:'Onest',sans-serif">
+<div style="position:absolute;left:0;right:0;bottom:0;height:340px;background:radial-gradient(ellipse at 50% 100%,rgba(242,140,60,.28) 0%,rgba(185,35,44,.12) 40%,rgba(11,13,18,0) 75%)"></div>
+<div style="position:absolute;left:36px;bottom:150px;width:2px;height:30px;background:#6b5a3a;opacity:.7"></div>
+<div style="position:absolute;left:28px;bottom:118px;width:18px;height:30px;border-radius:8px;background:#f2b45a;box-shadow:0 0 34px 12px rgba(242,180,90,.4);opacity:.75"></div>
+<div style="position:absolute;right:36px;bottom:170px;width:2px;height:30px;background:#6b5a3a;opacity:.7"></div>
+<div style="position:absolute;right:28px;bottom:138px;width:18px;height:30px;border-radius:8px;background:#f2b45a;box-shadow:0 0 34px 12px rgba(242,180,90,.4);opacity:.75"></div>
+<span style="position:absolute;left:300px;top:540px;width:10px;height:7px;border-radius:70% 0 70% 0;background:#e07a96;transform:rotate(40deg);opacity:.6"></span>
+<span style="position:absolute;left:90px;top:600px;width:9px;height:6px;border-radius:70% 0 70% 0;background:#f09ab0;transform:rotate(-20deg);opacity:.6"></span>
+<div style="position:absolute;left:0;right:0;top:0;bottom:0;padding:16px 20px 24px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:8px;height:44px">
+<a href="DetailKategori.dc.html" aria-label="Keluar dari kuis" style="width:44px;height:44px;margin-left:-12px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8E4DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
+<div role="progressbar" aria-label="Progres kuis" aria-valuemin="0" aria-valuemax="10" aria-valuenow="3" style="flex:1;height:6px;border-radius:3px;background:#2A2F3C"><div style="width:30%;height:100%;border-radius:3px;background:#B9232C;box-shadow:0 0 10px rgba(185,35,44,.7)"></div></div>
+<span style="font-size:14px;font-weight:600;color:#E8E4DD;min-width:36px;text-align:right">3/10</span>
+</div>
+<div style="margin-top:20px;font-size:13px;line-height:18px;letter-spacing:1px;color:#C9A56A">SAINS · PEMULA</div>
+<h1 style="margin:8px 0 0;font-size:22px;line-height:32px;font-weight:600">Apa nama planet yang dikenal sebagai Planet Merah?</h1>
+<div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+<button type="button" aria-pressed="false" style="height:60px;display:flex;align-items:center;gap:14px;padding:0 16px;background:#171A22;border:1.5px solid #232734;border-radius:14px;color:#E8E4DD;font-size:16px;text-align:left;cursor:pointer">
+<span style="width:32px;height:32px;border-radius:50%;border:1.5px solid #4A4F5E;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#B4B8C2;flex-shrink:0">A</span>Jupiter</button>
+<button type="button" aria-pressed="true" style="height:60px;display:flex;align-items:center;gap:14px;padding:0 16px;background:rgba(185,35,44,.16);border:1.5px solid #B9232C;border-radius:14px;color:#E8E4DD;font-size:16px;font-weight:600;text-align:left;cursor:pointer;box-shadow:0 0 18px rgba(185,35,44,.25)">
+<span style="width:32px;height:32px;border-radius:50%;background:#B9232C;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#E8E4DD;flex-shrink:0">B</span><span style="flex:1">Mars</span>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8E4DD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></button>
+<button type="button" aria-pressed="false" style="height:60px;display:flex;align-items:center;gap:14px;padding:0 16px;background:#171A22;border:1.5px solid #232734;border-radius:14px;color:#E8E4DD;font-size:16px;text-align:left;cursor:pointer">
+<span style="width:32px;height:32px;border-radius:50%;border:1.5px solid #4A4F5E;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#B4B8C2;flex-shrink:0">C</span>Venus</button>
+<button type="button" aria-pressed="false" style="height:60px;display:flex;align-items:center;gap:14px;padding:0 16px;background:#171A22;border:1.5px solid #232734;border-radius:14px;color:#E8E4DD;font-size:16px;text-align:left;cursor:pointer">
+<span style="width:32px;height:32px;border-radius:50%;border:1.5px solid #4A4F5E;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#B4B8C2;flex-shrink:0">D</span>Saturnus</button>
+</div>
+<div style="margin-top:auto;display:flex;gap:12px">
+<button type="button" style="width:112px;height:52px;border-radius:12px;border:1.5px solid #4A4F5E;background:rgba(11,13,18,.6);color:#E8E4DD;font-size:15px;font-weight:500;cursor:pointer">Simpan</button>
+<a href="Penjelasan.dc.html" style="flex:1;height:52px;display:flex;align-items:center;justify-content:center;background:#B9232C;border-radius:12px;color:#E8E4DD;font-size:16px;font-weight:600;box-shadow:0 8px 22px rgba(185,35,44,.35)">Selanjutnya</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "categoryId": "umum",
+  "questions": [
+    {
+      "difficulty": "pemula",
+      "prompt": "Ibu kota Jepang adalah…",
+      "options": [
+        "Osaka",
+        "Kyoto",
+        "Tokyo",
+        "Hokkaido"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tokyo adalah ibu kota dan kota terbesar di Jepang.",
+      "funFact": "Tokyo sebelumnya bernama Edo."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Benua terbesar di Bumi adalah…",
+      "options": [
+        "Afrika",
+        "Amerika",
+        "Asia",
+        "Eropa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Asia memiliki luas daratan terbesar dan populasi terbanyak.",
+      "funFact": "Sekitar 60% penduduk dunia tinggal di Asia."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Lambang negara Indonesia adalah…",
+      "options": [
+        "Garuda Pancasila",
+        "Harimau",
+        "Komodo",
+        "Elang Jawa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Garuda Pancasila merujuk pada burung mitologis yang membawa perisai Pancasila.",
+      "funFact": "Semboyan di pita Garuda adalah Bhinneka Tunggal Ika."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Samudra terluas di dunia adalah…",
+      "options": [
+        "Atlantik",
+        "Hindia",
+        "Pasifik",
+        "Arktik"
+      ],
+      "correctIndex": 2,
+      "explanation": "Samudra Pasifik mencakup lebih dari sepertiga permukaan Bumi.",
+      "funFact": "Nama Pasifik berarti “damai”, diberikan Magellan."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Alat musik tradisional Jawa yang dimainkan dengan dipukul adalah…",
+      "options": [
+        "Suling",
+        "Gamelan / gong",
+        "Angklung saja",
+        "Piano"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gamelan terdiri dari gong, saron, dan instrumen pukul lain.",
+      "funFact": "UNESCO mengakui gamelan sebagai warisan budaya takbenda."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Mata uang Malaysia adalah…",
+      "options": [
+        "Rupiah",
+        "Baht",
+        "Ringgit",
+        "Peso"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mata uang resmi Malaysia adalah ringgit (MYR).",
+      "funFact": "Satu ringgit dibagi menjadi 100 sen."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Gunung tertinggi di Indonesia adalah…",
+      "options": [
+        "Semeru",
+        "Rinjani",
+        "Kerinci",
+        "Puncak Jaya"
+      ],
+      "correctIndex": 3,
+      "explanation": "Puncak Jaya (Carstensz) di Papua mencapai lebih dari 4.800 mdpl.",
+      "funFact": "Puncak Jaya adalah satu-satunya puncak bersalju di Indonesia."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Hari Kemerdekaan Indonesia diperingati setiap…",
+      "options": [
+        "1 Juni",
+        "17 Agustus",
+        "21 April",
+        "10 November"
+      ],
+      "correctIndex": 1,
+      "explanation": "17 Agustus adalah hari proklamasi kemerdekaan.",
+      "funFact": "Upacara negara biasanya diadakan di Istana Merdeka."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Planet yang paling dekat dengan Matahari adalah…",
+      "options": [
+        "Venus",
+        "Merkurius",
+        "Bumi",
+        "Mars"
+      ],
+      "correctIndex": 1,
+      "explanation": "Merkurius adalah planet terdalam di tata surya.",
+      "funFact": "Satu tahun di Merkurius hanya sekitar 88 hari Bumi."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Bahasa resmi Perserikatan Bangsa-Bangsa yang berasal dari Asia adalah…",
+      "options": [
+        "Jepang",
+        "Hindi",
+        "Tionghoa (Mandarin)",
+        "Korea"
+      ],
+      "correctIndex": 2,
+      "explanation": "Enam bahasa resmi PBB: Arab, Tionghoa, Inggris, Prancis, Rusia, Spanyol.",
+      "funFact": "Bahasa Indonesia bukan bahasa resmi PBB, meski banyak penuturnya."
+    }
+  ]
+}
