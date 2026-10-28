@@ -6,6 +6,7 @@ import 'package:kage/app_services.dart';
 import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/auth/login_page.dart';
 import 'package:kage/features/auth/register_page.dart';
+import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/features/splash/splash_page.dart';
 import 'package:kage/theme/app_theme.dart';
@@ -84,6 +85,9 @@ class _KageAppState extends State<KageApp> {
       providers: [
         ChangeNotifierProvider<AuthController>.value(
           value: widget.services.auth,
+        ),
+        ChangeNotifierProvider<HistoryController>.value(
+          value: widget.services.history,
         ),
         ChangeNotifierProvider<QuizController>.value(
           value: widget.services.quiz,
