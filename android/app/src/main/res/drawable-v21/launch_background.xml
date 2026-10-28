@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash screen native KAGE: latar gelap agar transisi ke Flutter mulus. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_background" />
+
+    <!-- Anda dapat menambahkan gambar splash di sini bila diperlukan. -->
+</layer-list>
