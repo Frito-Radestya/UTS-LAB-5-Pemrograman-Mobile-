@@ -9,8 +9,11 @@ import 'package:kage/features/auth/register_page.dart';
 import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/home/beranda_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
+import 'package:kage/features/quiz/detail_kategori_page.dart';
+import 'package:kage/features/quiz/kategori_page.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/features/splash/splash_page.dart';
+import 'package:kage/models/models.dart';
 import 'package:kage/theme/app_theme.dart';
 
 class KageApp extends StatefulWidget {
@@ -67,6 +70,23 @@ class _KageAppState extends State<KageApp> {
         GoRoute(
           path: '/beranda',
           builder: (context, state) => const BerandaPage(),
+        ),
+        GoRoute(
+          path: '/kategori',
+          builder: (context, state) => const KategoriPage(),
+          routes: [
+            GoRoute(
+              path: ':id',
+              builder: (context, state) {
+                final idName = state.pathParameters['id'] ?? '';
+                final id = CategoryId.values.firstWhere(
+                  (c) => c.name == idName,
+                  orElse: () => CategoryId.sains,
+                );
+                return DetailKategoriPage(id: id);
+              },
+            ),
+          ],
         ),
       ],
     );
