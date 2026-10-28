@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>KAGE Skor dan Profil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap">
+<style>
+body{margin:0}
+a{text-decoration:none}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;position:relative;overflow:hidden;background:#0B0D12;color:#E8E4DD;font-family:'Onest',sans-serif;display:flex;flex-direction:column">
+<div style="position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(180deg,#1d1535 0%,#0B0D12 100%)"></div>
+<span style="position:absolute;left:310px;top:70px;width:10px;height:7px;border-radius:70% 0 70% 0;background:#e07a96;transform:rotate(40deg);opacity:.6"></span>
+<span style="position:absolute;left:250px;top:140px;width:9px;height:6px;border-radius:70% 0 70% 0;background:#f09ab0;transform:rotate(-20deg);opacity:.55"></span>
+<div style="position:relative;flex:1;min-height:0;padding:16px 20px 0;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:4px;height:44px">
+<a href="Beranda.dc.html" aria-label="Kembali ke beranda" style="width:44px;height:44px;margin-left:-12px;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8E4DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
+<h1 style="margin:0;flex:1;font-size:18px;line-height:26px;font-weight:600">Skor &amp; Profil</h1>
+<a href="Pengaturan.dc.html" aria-label="Buka pengaturan" style="width:44px;height:44px;margin-right:-8px;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8E4DD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.400 15a1.700 1.700 0 0 0 .3 1.800l.1.100a2 2 0 1 1-2.800 2.800l-.1-.1a1.700 1.700 0 0 0-1.800-.3 1.700 1.700 0 0 0-1 1.500V21a2 2 0 1 1-4 0v-.1a1.700 1.700 0 0 0-1.100-1.500 1.700 1.700 0 0 0-1.800.3l-.1.100a2 2 0 1 1-2.800-2.800l.1-.1a1.700 1.700 0 0 0 .3-1.800 1.700 1.700 0 0 0-1.500-1H3a2 2 0 1 1 0-4h.1a1.700 1.700 0 0 0 1.500-1.100 1.700 1.700 0 0 0-.3-1.800l-.1-.1a2 2 0 1 1 2.800-2.800l.1.100a1.700 1.700 0 0 0 1.800.3H9a1.700 1.700 0 0 0 1-1.500V3a2 2 0 1 1 4 0v.1a1.700 1.700 0 0 0 1 1.500 1.700 1.700 0 0 0 1.800-.3l.1-.1a2 2 0 1 1 2.800 2.800l-.1.100a1.700 1.700 0 0 0-.3 1.800V9a1.700 1.700 0 0 0 1.500 1H21a2 2 0 1 1 0 4h-.1a1.700 1.700 0 0 0-1.500 1z"/></svg></a>
+</div>
+<div style="margin-top:16px;display:flex;align-items:center;gap:16px">
+<div style="width:80px;height:80px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 30% 25%,#3b2a4e,#171A22);border:2px solid #C9A56A;box-shadow:0 0 24px rgba(201,165,106,.35);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:600;color:#C9A56A" role="img" aria-label="Avatar Frito">F</div>
+<div style="min-width:0">
+<div style="font-size:22px;line-height:30px;font-weight:600">Frito Radestya S.</div>
+<div style="margin-top:2px;display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:12px;border:1px solid #C9A56A;color:#C9A56A;font-size:13px;line-height:18px">Level 3 · Pembelajar</div>
+</div>
+</div>
+<div style="margin-top:20px;padding:14px 16px;background:#171A22;border:1px solid #232734;border-radius:14px">
+<div style="display:flex;justify-content:space-between;font-size:13px;color:#8B909C"><span>Menuju Level 4</span><span style="color:#C9A56A;font-weight:600">1.250 XP</span></div>
+<div role="progressbar" aria-label="XP menuju level berikutnya" aria-valuemin="0" aria-valuemax="1500" aria-valuenow="1250" style="margin-top:8px;height:6px;border-radius:3px;background:#2A2F3C"><div style="width:83%;height:100%;border-radius:3px;background:#B9232C"></div></div>
+</div>
+<div role="tablist" aria-label="Bagian profil" style="margin-top:20px;display:flex;border-bottom:1px solid #232734">
+<a role="tab" aria-selected="true" href="Profil.dc.html" style="flex:1;height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#E4545C;box-shadow:inset 0 -2px 0 #B9232C">Riwayat</a>
+<a role="tab" aria-selected="false" href="Badge.dc.html" style="flex:1;height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#8B909C">Badge</a>
+<a role="tab" aria-selected="false" href="Riwayat.dc.html" style="flex:1;height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#8B909C">Statistik</a>
+</div>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+<div style="height:64px;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:0 16px;background:#171A22;border:1px solid #232734;border-radius:14px">
+<div style="width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#1f3358,#10162b);border:1.5px solid #6EB6FF;color:#6EB6FF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.500" y="9.500" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+<div style="flex:1;min-width:0"><div style="font-size:15px;line-height:20px;font-weight:600">Teknologi</div><div style="font-size:12px;line-height:16px;color:#8B909C">08 Okt 2025 · 02:45</div></div>
+<div style="font-size:20px;font-weight:700;color:#6FD0A0">80</div>
+</div>
+<div style="height:64px;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:0 16px;background:#171A22;border:1px solid #232734;border-radius:14px">
+<div style="width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#3a2a20,#14121a);border:1.5px solid #F0A25A;color:#F0A25A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.500" fill="currentColor"/></svg></div>
+<div style="flex:1;min-width:0"><div style="font-size:15px;line-height:20px;font-weight:600">Sains</div><div style="font-size:12px;line-height:16px;color:#8B909C">06 Okt 2025 · 02:12</div></div>
+<div style="font-size:20px;font-weight:700;color:#C9A56A">100</div>
+</div>
+<div style="height:64px;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:0 16px;background:#171A22;border:1px solid #232734;border-radius:14px">
+<div style="width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#3a3020,#14121a);border:1.5px solid #E0B86A;color:#E0B86A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5H3z"/><path d="M5 9v9M9.500 9v9M14.500 9v9M19 9v9M3 21h18M4 18h16"/></svg></div>
+<div style="flex:1;min-width:0"><div style="font-size:15px;line-height:20px;font-weight:600">Sejarah</div><div style="font-size:12px;line-height:16px;color:#8B909C">04 Okt 2025 · 03:01</div></div>
+<div style="font-size:20px;font-weight:700;color:#F0A25A">70</div>
+</div>
+<div style="height:64px;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:0 16px;background:#171A22;border:1px solid #232734;border-radius:14px">
+<div style="width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#2d2650,#10102a);border:1.5px solid #B79CFF;color:#B79CFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 6-8 12L4 9z"/><path d="M4 9h16M9 9l3 12 3-12M12 3l-3 6M12 3l3 6"/></svg></div>
+<div style="flex:1;min-width:0"><div style="font-size:15px;line-height:20px;font-weight:600">Logika</div><div style="font-size:12px;line-height:16px;color:#8B909C">03 Okt 2025 · 02:57</div></div>
+<div style="font-size:20px;font-weight:700;color:#C9A56A">90</div>
+</div>
+</div>
+<a href="Riwayat.dc.html" style="margin-top:4px;height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#E4545C">Lihat semua riwayat</a>
+</div>
+<nav aria-label="Navigasi utama" style="display:flex;height:72px;flex-shrink:0;border-top:1px solid #232734;background:#0f1218;position:relative">
+<a href="Beranda.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Beranda</a>
+<a href="Kategori.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg>Kuis</a>
+<a href="Riwayat.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8B909C;font-size:12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Skor</a>
+<a href="Profil.dc.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#E4545C;font-size:12px;box-shadow:inset 0 2px 0 #B9232C"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.500-6 8-6s7 2 8 6"/></svg>Profil</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
