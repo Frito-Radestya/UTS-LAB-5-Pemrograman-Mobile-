@@ -7,6 +7,7 @@ import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/auth/login_page.dart';
 import 'package:kage/features/auth/register_page.dart';
 import 'package:kage/features/history/history_controller.dart';
+import 'package:kage/features/home/beranda_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/features/splash/splash_page.dart';
@@ -65,9 +66,7 @@ class _KageAppState extends State<KageApp> {
         ),
         GoRoute(
           path: '/beranda',
-          builder: (context, state) => const Scaffold(
-            body: Center(child: Text('Beranda')),
-          ),
+          builder: (context, state) => const BerandaPage(),
         ),
       ],
     );
