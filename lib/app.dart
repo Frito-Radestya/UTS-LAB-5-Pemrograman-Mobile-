@@ -11,6 +11,7 @@ import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/home/beranda_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/detail_kategori_page.dart';
+import 'package:kage/features/quiz/hasil_page.dart';
 import 'package:kage/features/quiz/kategori_page.dart';
 import 'package:kage/features/quiz/kuis_page.dart';
 import 'package:kage/features/quiz/penjelasan_page.dart';
@@ -59,9 +60,12 @@ class _KageAppState extends State<KageApp> {
           return '/beranda';
         }
 
-        if (loc == '/kuis' || loc == '/penjelasan') {
+        if (loc == '/kuis' || loc == '/penjelasan' || loc == '/hasil') {
           if (quiz.activeCategory == null) return '/beranda';
           if (loc == '/penjelasan' && quiz.currentQuestion == null) {
+            return '/beranda';
+          }
+          if (loc == '/hasil' && quiz.lastResult == null) {
             return '/beranda';
           }
         }
@@ -109,6 +113,10 @@ class _KageAppState extends State<KageApp> {
         GoRoute(
           path: '/penjelasan',
           builder: (context, state) => const PenjelasanPage(),
+        ),
+        GoRoute(
+          path: '/hasil',
+          builder: (context, state) => const HasilPage(),
         ),
         GoRoute(
           path: '/pengaturan',
