@@ -22,6 +22,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/
+    - assets/data/
 
   fonts:
     - family: Onest

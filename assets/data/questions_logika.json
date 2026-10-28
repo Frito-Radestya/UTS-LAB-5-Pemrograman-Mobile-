@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "categoryId": "logika",
+  "questions": [
+    {
+      "difficulty": "pemula",
+      "prompt": "Lanjutkan pola: 2, 4, 8, 16, …",
+      "options": [
+        "18",
+        "24",
+        "32",
+        "20"
+      ],
+      "correctIndex": 2,
+      "explanation": "Setiap suku dikalikan 2, sehingga suku berikutnya 32.",
+      "funFact": "Pola ini disebut barisan geometri dengan rasio 2."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Jika semua kucing adalah hewan, dan Mimi adalah kucing, maka Mimi…",
+      "options": [
+        "Bukan hewan",
+        "Adalah hewan",
+        "Adalah anjing",
+        "Tidak bisa disimpulkan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ini silogisme valid: premis universal plus premis khusus menghasilkan kesimpulan.",
+      "funFact": "Aristoteles merumuskan dasar logika silogisme."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Berapakah 15% dari 200?",
+      "options": [
+        "15",
+        "20",
+        "30",
+        "35"
+      ],
+      "correctIndex": 2,
+      "explanation": "15/100 × 200 = 30.",
+      "funFact": "Persen berarti “per seratus”."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Mana yang ganjil di antara: 3, 9, 15, 21, 24?",
+      "options": [
+        "3",
+        "15",
+        "21",
+        "24"
+      ],
+      "correctIndex": 3,
+      "explanation": "24 adalah satu-satunya bilangan genap dalam daftar itu.",
+      "funFact": "Bilangan genap habis dibagi 2."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Jika hari ini Senin, maka 10 hari lagi adalah…",
+      "options": [
+        "Kamis",
+        "Jumat",
+        "Sabtu",
+        "Rabu"
+      ],
+      "correctIndex": 0,
+      "explanation": "10 mod 7 = 3, Senin plus 3 hari adalah Kamis.",
+      "funFact": "Siklus hari selalu berulang setiap 7 hari."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Jumlah sudut dalam segitiga adalah…",
+      "options": [
+        "90°",
+        "180°",
+        "270°",
+        "360°"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jumlah ketiga sudut segitiga datar selalu 180 derajat.",
+      "funFact": "Pada permukaan bola, jumlah sudut segitiga bisa lebih dari 180°."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Pola huruf: A, C, F, J, … Huruf berikutnya?",
+      "options": [
+        "K",
+        "M",
+        "N",
+        "O"
+      ],
+      "correctIndex": 2,
+      "explanation": "Posisi huruf: A(1), C(3)=+2, F(6)=+3, J(10)=+4. Selisih berikutnya +5 sehingga 15 = O.",
+      "funFact": "Pola selisih yang naik sering muncul di tes penalaran."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Sebuah jam menunjukkan 3:00. Sudut antara jarum jam dan menit adalah…",
+      "options": [
+        "60°",
+        "90°",
+        "120°",
+        "180°"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pada pukul 3:00 jarum jam di angka 3 dan menit di 12, membentuk sudut siku-siku.",
+      "funFact": "Setiap angka jam berjarak 30 derajat."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Jika 4 pensil seharga 12.000, harga 1 pensil adalah…",
+      "options": [
+        "2.000",
+        "3.000",
+        "4.000",
+        "6.000"
+      ],
+      "correctIndex": 1,
+      "explanation": "12.000 dibagi 4 hasilnya 3.000.",
+      "funFact": "Ini contoh perbandingan senilai yang sederhana."
+    },
+    {
+      "difficulty": "pemula",
+      "prompt": "Manakah pernyataan yang merupakan kontradiksi?",
+      "options": [
+        "Semua burung bisa terbang",
+        "Hujan atau tidak hujan",
+        "Hari ini Senin dan bukan Senin",
+        "Jika hujan, jalan basah"
+      ],
+      "correctIndex": 2,
+      "explanation": "Suatu pernyataan dan negasinya tidak bisa benar bersamaan.",
+      "funFact": "Dalam logika, kontradiksi selalu bernilai salah."
+    }
+  ]
+}
