@@ -7,7 +7,9 @@ import 'package:kage/app_services.dart';
 import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/auth/login_page.dart';
 import 'package:kage/features/auth/register_page.dart';
+import 'package:kage/features/history/detail_riwayat_page.dart';
 import 'package:kage/features/history/history_controller.dart';
+import 'package:kage/features/history/riwayat_page.dart';
 import 'package:kage/features/home/beranda_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/detail_kategori_page.dart';
@@ -58,6 +60,10 @@ class _KageAppState extends State<KageApp> {
 
         if (isSplash || isAuthRoute) {
           return '/beranda';
+        }
+
+        if (loc == '/riwayat/detail' && state.extra is! QuizResult) {
+          return '/riwayat';
         }
 
         if (loc == '/kuis' || loc == '/penjelasan' || loc == '/hasil') {
@@ -117,6 +123,17 @@ class _KageAppState extends State<KageApp> {
         GoRoute(
           path: '/hasil',
           builder: (context, state) => const HasilPage(),
+        ),
+        GoRoute(
+          path: '/riwayat',
+          builder: (context, state) => const RiwayatPage(),
+          routes: [
+            GoRoute(
+              path: 'detail',
+              builder: (context, state) =>
+                  DetailRiwayatPage(result: state.extra! as QuizResult),
+            ),
+          ],
         ),
         GoRoute(
           path: '/pengaturan',
