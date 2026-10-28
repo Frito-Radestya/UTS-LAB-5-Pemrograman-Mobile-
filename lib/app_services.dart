@@ -8,7 +8,9 @@ import 'package:kage/data/repositories/history_repository.dart';
 import 'package:kage/data/repositories/progress_repository.dart';
 import 'package:kage/data/repositories/quiz_repository.dart';
 import 'package:kage/features/auth/auth_controller.dart';
+import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
+import 'package:kage/models/models.dart';
 
 class AppServices {
   AppServices({
@@ -24,7 +26,9 @@ class AppServices {
         progressRepository ?? InMemoryProgressRepository();
 
     auth = AuthController(repository: this.authRepository);
+    history = HistoryController(repository: this.historyRepository);
     quiz = QuizController(
+      onCompleted: _recordQuizResult,
       questions: this.quizRepository,
       progress: this.progressRepository,
     );
@@ -44,6 +48,7 @@ class AppServices {
   }
 
   late final AuthController auth;
+  late final HistoryController history;
   late final QuizController quiz;
   late final AuthRepository authRepository;
   late final HistoryRepository historyRepository;
@@ -51,8 +56,13 @@ class AppServices {
   late final ProgressRepository progressRepository;
   late final Listenable routerListenable;
 
+  void _recordQuizResult(QuizResult result) {
+    history.addResult(result);
+  }
+
   void dispose() {
     quiz.dispose();
+    history.dispose();
     auth.dispose();
   }
 }
