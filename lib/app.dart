@@ -12,6 +12,8 @@ import 'package:kage/features/home/beranda_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/detail_kategori_page.dart';
 import 'package:kage/features/quiz/kategori_page.dart';
+import 'package:kage/features/quiz/kuis_page.dart';
+import 'package:kage/features/quiz/penjelasan_page.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/features/settings/bantuan_page.dart';
 import 'package:kage/features/settings/pengaturan_page.dart';
@@ -36,6 +38,7 @@ class _KageAppState extends State<KageApp> {
   void initState() {
     super.initState();
     final auth = widget.services.auth;
+    final quiz = widget.services.quiz;
 
     _router = GoRouter(
       initialLocation: '/',
@@ -54,6 +57,13 @@ class _KageAppState extends State<KageApp> {
 
         if (isSplash || isAuthRoute) {
           return '/beranda';
+        }
+
+        if (loc == '/kuis' || loc == '/penjelasan') {
+          if (quiz.activeCategory == null) return '/beranda';
+          if (loc == '/penjelasan' && quiz.currentQuestion == null) {
+            return '/beranda';
+          }
         }
 
         return null;
@@ -91,6 +101,14 @@ class _KageAppState extends State<KageApp> {
               },
             ),
           ],
+        ),
+        GoRoute(
+          path: '/kuis',
+          builder: (context, state) => const KuisPage(),
+        ),
+        GoRoute(
+          path: '/penjelasan',
+          builder: (context, state) => const PenjelasanPage(),
         ),
         GoRoute(
           path: '/pengaturan',
