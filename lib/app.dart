@@ -7,10 +7,12 @@ import 'package:kage/app_services.dart';
 import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/auth/login_page.dart';
 import 'package:kage/features/auth/register_page.dart';
+import 'package:kage/features/history/badge_page.dart';
 import 'package:kage/features/history/detail_riwayat_page.dart';
 import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/history/riwayat_page.dart';
 import 'package:kage/features/home/beranda_page.dart';
+import 'package:kage/features/profile/profil_page.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/detail_kategori_page.dart';
 import 'package:kage/features/quiz/hasil_page.dart';
@@ -134,6 +136,14 @@ class _KageAppState extends State<KageApp> {
                   DetailRiwayatPage(result: state.extra! as QuizResult),
             ),
           ],
+        ),
+        GoRoute(
+          path: '/profil',
+          builder: (context, state) => const ProfilPage(),
+        ),
+        GoRoute(
+          path: '/badge',
+          builder: (context, state) => const BadgePage(),
         ),
         GoRoute(
           path: '/pengaturan',
