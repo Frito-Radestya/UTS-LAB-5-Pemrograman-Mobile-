@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,9 @@ import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/detail_kategori_page.dart';
 import 'package:kage/features/quiz/kategori_page.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
+import 'package:kage/features/settings/bantuan_page.dart';
+import 'package:kage/features/settings/pengaturan_page.dart';
+import 'package:kage/features/settings/settings_controller.dart';
 import 'package:kage/features/splash/splash_page.dart';
 import 'package:kage/models/models.dart';
 import 'package:kage/theme/app_theme.dart';
@@ -88,7 +92,26 @@ class _KageAppState extends State<KageApp> {
             ),
           ],
         ),
+        GoRoute(
+          path: '/pengaturan',
+          builder: (context, state) => const PengaturanPage(),
+        ),
+        GoRoute(
+          path: '/bantuan',
+          builder: (context, state) => const BantuanPage(),
+        ),
       ],
+    );
+  }
+
+  void _applySystemBars(BuildContext context, KageTheme theme) {
+    final brightness = theme == KageTheme.sistem
+        ? MediaQuery.platformBrightnessOf(context)
+        : Brightness.dark;
+    SystemChrome.setSystemUIOverlayStyle(
+      brightness == Brightness.dark
+          ? SystemUiOverlayStyle.light
+          : SystemUiOverlayStyle.dark,
     );
   }
 
@@ -106,6 +129,9 @@ class _KageAppState extends State<KageApp> {
         ChangeNotifierProvider<AuthController>.value(
           value: widget.services.auth,
         ),
+        ChangeNotifierProvider<SettingsController>.value(
+          value: widget.services.settings,
+        ),
         ChangeNotifierProvider<HistoryController>.value(
           value: widget.services.history,
         ),
@@ -116,11 +142,16 @@ class _KageAppState extends State<KageApp> {
           value: widget.services.quiz,
         ),
       ],
-      child: MaterialApp.router(
-        title: 'KAGE',
-        theme: AppTheme.dark(),
-        routerConfig: _router,
-        debugShowCheckedModeBanner: false,
+      child: Consumer<SettingsController>(
+        builder: (context, settings, _) {
+          _applySystemBars(context, settings.theme);
+          return MaterialApp.router(
+            title: 'KAGE',
+            theme: AppTheme.dark(),
+            routerConfig: _router,
+            debugShowCheckedModeBanner: false,
+          );
+        },
       ),
     );
   }
