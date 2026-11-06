@@ -21,7 +21,7 @@ class ProfilPage extends StatelessWidget {
     return ScreenScaffold(
       navIndex: 3,
       stack: const [
-        TopWash(height: 260, colors: [Color(0xFF1D1535), AppColors.background]),
+        TopWash(height: 260),
       ],
       child: Column(
         children: [
@@ -48,7 +48,7 @@ class ProfilPage extends StatelessWidget {
                   IconButton(
                     tooltip: 'Buka pengaturan',
                     onPressed: () => context.push('/pengaturan'),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.settings_outlined,
                       color: AppColors.text,
                     ),
@@ -73,9 +73,9 @@ class ProfilPage extends StatelessWidget {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          gradient: const RadialGradient(
-                            center: Alignment(-0.4, -0.5),
-                            colors: [Color(0xFF3B2A4E), AppColors.surface],
+                          gradient: RadialGradient(
+                            center: const Alignment(-0.4, -0.5),
+                            colors: AppColors.avatarGradientColors,
                           ),
                           border: Border.all(color: AppColors.gold, width: 2),
                           boxShadow: [
@@ -164,7 +164,11 @@ class ProfilPage extends StatelessWidget {
                   const SizedBox(height: 12),
                   // History list
                   for (final r in history.history.take(4)) ...[
-                    ScoreRow(result: r, compact: true),
+                    KageTappable(
+                      borderRadius: BorderRadius.circular(14),
+                      onTap: () => context.push('/riwayat/detail', extra: r),
+                      child: ScoreRow(result: r, compact: true),
+                    ),
                     const SizedBox(height: 10),
                   ],
                   KageTappable(

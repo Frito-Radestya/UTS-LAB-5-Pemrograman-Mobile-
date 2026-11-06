@@ -244,7 +244,7 @@ class _RiwayatPageState extends State<RiwayatPage> {
           label,
           style: AppTextStyles.body.copyWith(
             fontWeight: on ? FontWeight.w600 : FontWeight.w400,
-            color: on ? AppColors.text : AppColors.textSoft,
+            color: on ? AppColors.onPrimary : AppColors.textSoft,
           ),
         ),
       ),

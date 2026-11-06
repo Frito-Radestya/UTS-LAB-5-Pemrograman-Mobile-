@@ -23,7 +23,7 @@ class KageWordmark extends StatelessWidget {
       padding: EdgeInsets.only(left: paddingLeft),
       child: ShaderMask(
         blendMode: BlendMode.srcIn,
-        shaderCallback: (bounds) => const LinearGradient(
+        shaderCallback: (bounds) => LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [AppColors.goldLight, AppColors.gold],

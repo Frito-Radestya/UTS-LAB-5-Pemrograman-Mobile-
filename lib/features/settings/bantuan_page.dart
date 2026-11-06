@@ -57,7 +57,6 @@ class BantuanPage extends StatelessWidget {
         children: [
           const TopWash(
             height: 200,
-            colors: [Color(0xFF1D1535), AppColors.background],
           ),
           SafeArea(
             child: Column(

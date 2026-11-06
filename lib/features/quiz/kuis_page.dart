@@ -86,7 +86,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
         : context.read<QuizRepository>().categoryById(quiz.activeCategory!);
     if (q == null || cat == null) {
       _timerController?.stop();
-      return const Scaffold(backgroundColor: AppColors.background);
+      return Scaffold(backgroundColor: AppColors.background);
     }
     if (!quiz.currentQuestionLocked) {
       _startTimer(quiz, settings, quiz.selectedDifficulty);
@@ -227,7 +227,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
                         // berdesakan di layar kecil (U-05).
                         PopupMenuButton<String>(
                           tooltip: 'Menu kuis',
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.more_vert,
                             color: AppColors.textMuted,
                           ),
@@ -236,8 +236,8 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
                             if (value != 'save') return;
                             quiz.saveProgress();
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
+                              SnackBar(
+                                content: const Text(
                                   'Progres disimpan. Lanjutkan kapan saja dari Beranda.',
                                 ),
                                 backgroundColor: AppColors.surface,
@@ -319,7 +319,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
                         if (locked) ...[
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.lock_outline,
                                 size: 16,
                                 color: AppColors.textMuted,
@@ -370,7 +370,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Keluar dari kuis?', style: AppTextStyles.titleLarge),
         content: Text(
@@ -438,7 +438,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
               child: Text(
                 '${i + 1}',
                 style: AppTextStyles.caption.copyWith(
-                  color: filled ? AppColors.text : AppColors.textMuted,
+                  color: filled ? AppColors.onPrimary : AppColors.textMuted,
                 ),
               ),
             );
@@ -502,7 +502,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
                 letter,
                 style: AppTextStyles.answerLetter.copyWith(
                   fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
-                  color: selected ? AppColors.text : AppColors.textSoft,
+                  color: selected ? AppColors.onPrimary : AppColors.textSoft,
                 ),
               ),
             ),

@@ -43,7 +43,7 @@ class ScoreTrendChart extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.show_chart, size: 16, color: AppColors.gold),
+                Icon(Icons.show_chart, size: 16, color: AppColors.gold),
                 const SizedBox(width: 6),
                 Expanded(
                   child: Text('Tren skor', style: AppTextStyles.titleSmall),

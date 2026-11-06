@@ -15,7 +15,7 @@ class KageBottomNav extends StatelessWidget {
     return Container(
       height: 72 + MediaQuery.paddingOf(context).bottom,
       padding: EdgeInsets.only(bottom: MediaQuery.paddingOf(context).bottom),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: AppColors.navBar,
         border: Border(top: BorderSide(color: AppColors.border)),
       ),

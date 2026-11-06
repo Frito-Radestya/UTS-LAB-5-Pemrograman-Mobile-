@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Lupa password?', style: AppTextStyles.titleLarge),
         content: Text(
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         children: [
           // Background gradient
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             top: 0,
@@ -117,13 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF070B1E),
-                    Color(0xFF141A45),
-                    Color(0xFF2B1D4A),
-                    AppColors.background,
-                  ],
-                  stops: [0, 0.4, 0.7, 1],
+                  colors: AppColors.heroSkyColors,
+                  stops: const [0, 0.4, 0.7, 1],
                 ),
               ),
             ),
@@ -210,7 +205,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 64,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const Color(0xFF1A0E12),
+                        color: AppColors.emblemFill,
                         border: Border.all(color: AppColors.primary, width: 2),
                         boxShadow: [
                           BoxShadow(
@@ -305,7 +300,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 22),
                     Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Divider(color: AppColors.borderStrong),
                         ),
                         Padding(
@@ -315,7 +310,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: AppTextStyles.bodySmallMuted,
                           ),
                         ),
-                        const Expanded(
+                        Expanded(
                           child: Divider(color: AppColors.borderStrong),
                         ),
                       ],
@@ -367,16 +362,31 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  void _onSocialTap(String label) {
+    if (email.text.trim().isNotEmpty || password.text.isNotEmpty) {
+      _enter();
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Masuk dengan $label belum tersedia pada mode luring. Silakan masuk atau daftar akun lokal.',
+        ),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
   Widget _social(String mark, String label) {
     return KageTappable(
       borderRadius: BorderRadius.circular(12),
       semanticLabel: 'Masuk dengan $label',
-      onTap: _enter,
+      onTap: () => _onSocialTap(label),
       child: Container(
         height: 48,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: const Color(0xFF3A3F4D)),
+          border: Border.all(color: AppColors.borderStrong),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -385,7 +395,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 20,
               height: 20,
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppColors.text,
                 shape: BoxShape.circle,
               ),

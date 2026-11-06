@@ -17,7 +17,7 @@ class BackIconButton extends StatelessWidget {
       label: label,
       child: KageTappable(
         onTap: onTap ?? () => context.pop(),
-        child: const SizedBox(
+        child: SizedBox(
           // Area sentuh minimal 48x48 dp (U-02).
           width: 48,
           height: 48,

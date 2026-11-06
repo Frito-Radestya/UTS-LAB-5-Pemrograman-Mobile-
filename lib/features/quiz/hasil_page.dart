@@ -296,7 +296,7 @@ class HasilPage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.bolt,
                               size: 18,
                               color: AppColors.gold,
