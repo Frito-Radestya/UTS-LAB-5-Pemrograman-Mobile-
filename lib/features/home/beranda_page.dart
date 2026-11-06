@@ -71,7 +71,7 @@ class BerandaPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.auto_awesome,
                     color: AppColors.gold,
                     size: 22,
@@ -131,17 +131,15 @@ class BerandaPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFF1A1440),
-                      Color(0xFF2D1534),
-                      Color(0xFF0F1A2A),
-                    ],
-                    stops: [0, 0.55, 1],
+                    colors: AppColors.resumeBannerColors,
+                    stops: const [0, 0.55, 1],
                   ),
+                  border: Border.all(color: AppColors.border),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,7 +217,7 @@ class BerandaPage extends StatelessWidget {
                                   ),
                                   child: const Icon(
                                     Icons.play_arrow_rounded,
-                                    color: AppColors.text,
+                                    color: AppColors.onPrimary,
                                   ),
                                 ),
                               ),
@@ -260,8 +258,9 @@ class BerandaPage extends StatelessWidget {
           // Category section header
           Row(
             children: [
-              Text('Kategori Kuis', style: AppTextStyles.titleLarge),
-              const Spacer(),
+              Expanded(
+                child: Text('Kategori Kuis', style: AppTextStyles.titleLarge),
+              ),
               KageTappable(
                 onTap: () => context.go('/kategori'),
                 semanticLabel: 'Lihat semua kategori',
@@ -359,9 +358,9 @@ class BerandaPage extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: const RadialGradient(
-          center: Alignment(-0.4, -0.5),
-          colors: [Color(0xFF3B2A4E), AppColors.surface],
+        gradient: RadialGradient(
+          center: const Alignment(-0.4, -0.5),
+          colors: AppColors.avatarGradientColors,
         ),
         border: Border.all(color: AppColors.gold, width: 1.5),
       ),

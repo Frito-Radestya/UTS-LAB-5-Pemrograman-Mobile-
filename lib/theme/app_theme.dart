@@ -13,7 +13,7 @@ class AppTheme {
     double size = 16,
     double heightPx = 24,
     FontWeight weight = FontWeight.w400,
-    Color color = AppColors.text,
+    Color? color,
     double? letterSpacing,
     FontStyle? fontStyle,
   }) {
@@ -22,7 +22,7 @@ class AppTheme {
       fontSize: size,
       height: heightPx / size,
       fontWeight: weight,
-      color: color,
+      color: color ?? AppColors.text,
       letterSpacing: letterSpacing,
       fontStyle: fontStyle,
     );
@@ -32,7 +32,7 @@ class AppTheme {
     double size = 40,
     double heightPx = 48,
     FontWeight weight = FontWeight.w600,
-    Color color = AppColors.gold,
+    Color? color,
     double letterSpacing = 8,
   }) {
     return TextStyle(
@@ -40,33 +40,66 @@ class AppTheme {
       fontSize: size,
       height: heightPx / size,
       fontWeight: weight,
-      color: color,
+      color: color ?? AppColors.gold,
       letterSpacing: letterSpacing,
     );
   }
 
   static ThemeData dark() {
+    const bg = Color(0xFF0B0D12);
+    const surf = Color(0xFF171A22);
+    const txt = Color(0xFFE8E4DD);
     final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: bg,
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
-        surface: AppColors.surface,
-        onPrimary: AppColors.text,
-        onSurface: AppColors.text,
+        surface: surf,
+        onPrimary: AppColors.onPrimary,
+        onSurface: txt,
       ),
     );
     return base.copyWith(
       textTheme: base.textTheme.apply(
         fontFamily: _bodyFont,
-        bodyColor: AppColors.text,
-        displayColor: AppColors.text,
+        bodyColor: txt,
+        displayColor: txt,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.light,
+      ),
+      splashFactory: InkRipple.splashFactory,
+    );
+  }
+
+  static ThemeData light() {
+    const bg = Color(0xFFF7F3EB);
+    const surf = Color(0xFFFFFFFF);
+    const txt = Color(0xFF1C1917);
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: bg,
+      colorScheme: const ColorScheme.light(
+        primary: AppColors.primary,
+        surface: surf,
+        onPrimary: AppColors.onPrimary,
+        onSurface: txt,
+      ),
+    );
+    return base.copyWith(
+      textTheme: base.textTheme.apply(
+        fontFamily: _bodyFont,
+        bodyColor: txt,
+        displayColor: txt,
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       splashFactory: InkRipple.splashFactory,
     );
@@ -82,247 +115,247 @@ class AppTextStyles {
   AppTextStyles._();
 
   // Angka dan judul besar.
-  static final displayScore = AppTheme.onest(
+  static TextStyle get displayScore => AppTheme.onest(
     size: 72,
     heightPx: 80,
     weight: FontWeight.w700,
   );
-  static final displayLevel = AppTheme.onest(
+  static TextStyle get displayLevel => AppTheme.onest(
     size: 32,
     heightPx: 36,
     weight: FontWeight.w600,
     color: AppColors.gold,
   );
-  static final displayLarge = AppTheme.onest(
+  static TextStyle get displayLarge => AppTheme.onest(
     size: 28,
     heightPx: 36,
     weight: FontWeight.w700,
   );
-  static final displayLargeGold = AppTheme.onest(
+  static TextStyle get displayLargeGold => AppTheme.onest(
     size: 28,
     heightPx: 36,
     weight: FontWeight.w700,
     color: AppColors.gold,
   );
-  static final displayMedium = AppTheme.onest(
+  static TextStyle get displayMedium => AppTheme.onest(
     size: 26,
     heightPx: 34,
     weight: FontWeight.w700,
   );
-  static final displaySmall = AppTheme.onest(
+  static TextStyle get displaySmall => AppTheme.onest(
     size: 24,
     heightPx: 32,
     weight: FontWeight.w700,
   );
 
   // Judul halaman dan bagian.
-  static final headlineLarge = AppTheme.onest(
+  static TextStyle get headlineLarge => AppTheme.onest(
     size: 22,
     heightPx: 32,
     weight: FontWeight.w600,
   );
-  static final headline = AppTheme.onest(
+  static TextStyle get headline => AppTheme.onest(
     size: 22,
     heightPx: 28,
     weight: FontWeight.w600,
   );
-  static final headlineGold = AppTheme.onest(
+  static TextStyle get headlineGold => AppTheme.onest(
     size: 22,
     heightPx: 28,
     weight: FontWeight.w700,
     color: AppColors.gold,
   );
-  static final headlineTightGold = AppTheme.onest(
+  static TextStyle get headlineTightGold => AppTheme.onest(
     size: 22,
     heightPx: 26,
     weight: FontWeight.w600,
     color: AppColors.gold,
   );
-  static final headlineSmall = AppTheme.onest(
+  static TextStyle get headlineSmall => AppTheme.onest(
     size: 20,
     heightPx: 28,
     weight: FontWeight.w600,
   );
-  static final headlineSmallLoose = AppTheme.onest(
+  static TextStyle get headlineSmallLoose => AppTheme.onest(
     size: 20,
     heightPx: 30,
     weight: FontWeight.w600,
   );
-  static final headlineSmallGold = AppTheme.onest(
+  static TextStyle get headlineSmallGold => AppTheme.onest(
     size: 20,
     heightPx: 26,
     weight: FontWeight.w700,
     color: AppColors.gold,
   );
-  static final titleLarge = AppTheme.onest(
+  static TextStyle get titleLarge => AppTheme.onest(
     size: 18,
     heightPx: 26,
     weight: FontWeight.w600,
   );
-  static final titleLargeGold = AppTheme.onest(
+  static TextStyle get titleLargeGold => AppTheme.onest(
     size: 18,
     heightPx: 24,
     weight: FontWeight.w700,
     color: AppColors.gold,
   );
-  static final titleMedium = AppTheme.onest(
+  static TextStyle get titleMedium => AppTheme.onest(
     size: 16,
     heightPx: 24,
     weight: FontWeight.w600,
   );
-  static final titleMediumTight = AppTheme.onest(
+  static TextStyle get titleMediumTight => AppTheme.onest(
     size: 16,
     heightPx: 22,
     weight: FontWeight.w600,
   );
-  static final titleSmall = AppTheme.onest(
+  static TextStyle get titleSmall => AppTheme.onest(
     size: 15,
     heightPx: 22,
     weight: FontWeight.w600,
   );
-  static final titleSmallMedium = AppTheme.onest(
+  static TextStyle get titleSmallMedium => AppTheme.onest(
     size: 15,
     heightPx: 22,
     weight: FontWeight.w500,
   );
-  static final titleSmallCompact = AppTheme.onest(
+  static TextStyle get titleSmallCompact => AppTheme.onest(
     size: 15,
     heightPx: 20,
     weight: FontWeight.w600,
   );
 
   // Teks isi.
-  static final bodyLarge = AppTheme.onest(size: 15, heightPx: 22);
-  static final bodyLargeMedium = AppTheme.onest(
+  static TextStyle get bodyLarge => AppTheme.onest(size: 15, heightPx: 22);
+  static TextStyle get bodyLargeMedium => AppTheme.onest(
     size: 15,
     heightPx: 22,
     weight: FontWeight.w500,
   );
-  static final bodyLargeStrong = AppTheme.onest(
+  static TextStyle get bodyLargeStrong => AppTheme.onest(
     size: 15,
     heightPx: 22,
     weight: FontWeight.w600,
   );
-  static final bodyLargeQuote = AppTheme.onest(
+  static TextStyle get bodyLargeQuote => AppTheme.onest(
     size: 15,
     heightPx: 24,
-    color: const Color(0xFFD6D2CB),
+    color: AppColors.textQuote,
   );
-  static final body = AppTheme.onest(size: 14, heightPx: 20);
-  static final bodyMedium = AppTheme.onest(
+  static TextStyle get body => AppTheme.onest(size: 14, heightPx: 20);
+  static TextStyle get bodyMedium => AppTheme.onest(
     size: 14,
     heightPx: 20,
     weight: FontWeight.w500,
   );
-  static final bodyStrong = AppTheme.onest(
+  static TextStyle get bodyStrong => AppTheme.onest(
     size: 14,
     heightPx: 20,
     weight: FontWeight.w600,
   );
-  static final bodyMuted = body.copyWith(color: AppColors.textMuted);
-  static final bodySoft = body.copyWith(color: AppColors.textSoft);
-  static final bodyPrimary = body.copyWith(color: AppColors.primaryText);
-  static final bodyGold = body.copyWith(color: AppColors.gold);
-  static final bodyQuote = body.copyWith(color: AppColors.textQuote);
-  static final bodyGoldWide = bodyGold.copyWith(letterSpacing: 4);
-  static final bodyRelaxed = AppTheme.onest(size: 14, heightPx: 21);
-  static final bodyRelaxedSoft = bodyRelaxed.copyWith(
+  static TextStyle get bodyMuted => body.copyWith(color: AppColors.textMuted);
+  static TextStyle get bodySoft => body.copyWith(color: AppColors.textSoft);
+  static TextStyle get bodyPrimary => body.copyWith(color: AppColors.primaryText);
+  static TextStyle get bodyGold => body.copyWith(color: AppColors.gold);
+  static TextStyle get bodyQuote => body.copyWith(color: AppColors.textQuote);
+  static TextStyle get bodyGoldWide => bodyGold.copyWith(letterSpacing: 4);
+  static TextStyle get bodyRelaxed => AppTheme.onest(size: 14, heightPx: 21);
+  static TextStyle get bodyRelaxedSoft => bodyRelaxed.copyWith(
     color: AppColors.textSoft,
   );
-  static final bodyLooseSoft = AppTheme.onest(
+  static TextStyle get bodyLooseSoft => AppTheme.onest(
     size: 14,
     heightPx: 22,
     color: AppColors.textSoft,
   );
-  static final bodyLooseQuote = AppTheme.onest(
+  static TextStyle get bodyLooseQuote => AppTheme.onest(
     size: 14,
     heightPx: 22,
     color: AppColors.textQuote,
   );
-  static final bodyLooseQuoteItalic = bodyLooseQuote.copyWith(
+  static TextStyle get bodyLooseQuoteItalic => bodyLooseQuote.copyWith(
     fontStyle: FontStyle.italic,
   );
 
   // Teks kecil dan label.
-  static final bodySmall = AppTheme.onest(size: 13, heightPx: 18);
-  static final bodySmallMedium = AppTheme.onest(
+  static TextStyle get bodySmall => AppTheme.onest(size: 13, heightPx: 18);
+  static TextStyle get bodySmallMedium => AppTheme.onest(
     size: 13,
     heightPx: 18,
     weight: FontWeight.w500,
   );
-  static final bodySmallMediumSoft = bodySmallMedium.copyWith(
+  static TextStyle get bodySmallMediumSoft => bodySmallMedium.copyWith(
     color: AppColors.textSoft,
   );
-  static final bodySmallStrong = AppTheme.onest(
+  static TextStyle get bodySmallStrong => AppTheme.onest(
     size: 13,
     heightPx: 18,
     weight: FontWeight.w600,
   );
-  static final bodySmallMuted = bodySmall.copyWith(color: AppColors.textMuted);
-  static final bodySmallPrimary = bodySmall.copyWith(
+  static TextStyle get bodySmallMuted => bodySmall.copyWith(color: AppColors.textMuted);
+  static TextStyle get bodySmallPrimary => bodySmall.copyWith(
     color: AppColors.primaryText,
   );
-  static final bodySmallGold = bodySmall.copyWith(color: AppColors.gold);
-  static final bodySmallStrongGold = bodySmallGold.copyWith(
+  static TextStyle get bodySmallGold => bodySmall.copyWith(color: AppColors.gold);
+  static TextStyle get bodySmallStrongGold => bodySmallGold.copyWith(
     fontWeight: FontWeight.w600,
   );
-  static final bodySmallGoldSpaced = bodySmallGold.copyWith(letterSpacing: 1);
-  static final bodySmallRelaxed = AppTheme.onest(size: 13, heightPx: 19);
-  static final bodySmallRelaxedMuted = bodySmallRelaxed.copyWith(
+  static TextStyle get bodySmallGoldSpaced => bodySmallGold.copyWith(letterSpacing: 1);
+  static TextStyle get bodySmallRelaxed => AppTheme.onest(size: 13, heightPx: 19);
+  static TextStyle get bodySmallRelaxedMuted => bodySmallRelaxed.copyWith(
     color: AppColors.textMuted,
   );
-  static final label = bodyStrong;
-  static final labelGold = bodyStrong.copyWith(color: AppColors.gold);
-  static final labelPrimary = bodyStrong.copyWith(color: AppColors.primaryText);
-  static final labelMuted = bodyStrong.copyWith(color: AppColors.textMuted);
-  static final labelLooseSuccess = AppTheme.onest(
+  static TextStyle get label => bodyStrong;
+  static TextStyle get labelGold => bodyStrong.copyWith(color: AppColors.gold);
+  static TextStyle get labelPrimary => bodyStrong.copyWith(color: AppColors.primaryText);
+  static TextStyle get labelMuted => bodyStrong.copyWith(color: AppColors.textMuted);
+  static TextStyle get labelLooseSuccess => AppTheme.onest(
     size: 14,
     heightPx: 24,
     weight: FontWeight.w600,
     color: AppColors.success,
   );
-  static final labelRelaxed = AppTheme.onest(size: 13, heightPx: 20);
-  static final labelRelaxedMuted = labelRelaxed.copyWith(
+  static TextStyle get labelRelaxed => AppTheme.onest(size: 13, heightPx: 20);
+  static TextStyle get labelRelaxedMuted => labelRelaxed.copyWith(
     color: AppColors.textMuted,
     letterSpacing: 0.5,
   );
 
   // Keterangan dan teks terkecil.
-  static final caption = AppTheme.onest(size: 12, heightPx: 16);
-  static final captionMuted = caption.copyWith(color: AppColors.textMuted);
-  static final captionPrimary = caption.copyWith(color: AppColors.primaryText);
-  static final captionSuccess = caption.copyWith(color: AppColors.success);
-  static final captionMutedSpaced = captionMuted.copyWith(letterSpacing: 0.5);
-  static final captionMutedWide = captionMuted.copyWith(letterSpacing: 1);
-  static final captionStrong = AppTheme.onest(
+  static TextStyle get caption => AppTheme.onest(size: 12, heightPx: 16);
+  static TextStyle get captionMuted => caption.copyWith(color: AppColors.textMuted);
+  static TextStyle get captionPrimary => caption.copyWith(color: AppColors.primaryText);
+  static TextStyle get captionSuccess => caption.copyWith(color: AppColors.success);
+  static TextStyle get captionMutedSpaced => captionMuted.copyWith(letterSpacing: 0.5);
+  static TextStyle get captionMutedWide => captionMuted.copyWith(letterSpacing: 1);
+  static TextStyle get captionStrong => AppTheme.onest(
     size: 12,
     heightPx: 16,
     weight: FontWeight.w700,
     color: AppColors.background,
   );
-  static final captionRelaxedMuted = AppTheme.onest(
+  static TextStyle get captionRelaxedMuted => AppTheme.onest(
     size: 12,
     heightPx: 18,
     color: AppColors.textMuted,
   );
-  static final captionRelaxedGold = AppTheme.onest(
+  static TextStyle get captionRelaxedGold => AppTheme.onest(
     size: 12,
     heightPx: 18,
     color: AppColors.gold,
   );
-  static final captionRelaxedSuccess = AppTheme.onest(
+  static TextStyle get captionRelaxedSuccess => AppTheme.onest(
     size: 12,
     heightPx: 18,
     color: AppColors.success,
   );
-  static final captionLooseSuccess = AppTheme.onest(
+  static TextStyle get captionLooseSuccess => AppTheme.onest(
     size: 12,
     heightPx: 20,
     color: AppColors.success,
   );
   // Teks terkecil tetap 12 sp agar terbaca pada skala font sistem (U-02).
-  static final captionSmall = AppTheme.onest(size: 12, heightPx: 16);
-  static final overlineGold = AppTheme.onest(
+  static TextStyle get captionSmall => AppTheme.onest(size: 12, heightPx: 16);
+  static TextStyle get overlineGold => AppTheme.onest(
     size: 12,
     heightPx: 16,
     color: AppColors.gold,
@@ -330,22 +363,22 @@ class AppTextStyles {
   );
 
   // Elemen khusus.
-  static final answerLetter = AppTheme.onest(
+  static TextStyle get answerLetter => AppTheme.onest(
     size: 14,
     heightPx: 18,
     weight: FontWeight.w600,
   );
-  static final scoreValue = AppTheme.onest(
+  static TextStyle get scoreValue => AppTheme.onest(
     size: 22,
     heightPx: 28,
     weight: FontWeight.w700,
   );
-  static final scoreValueCompact = AppTheme.onest(
+  static TextStyle get scoreValueCompact => AppTheme.onest(
     size: 20,
     heightPx: 28,
     weight: FontWeight.w700,
   );
-  static final brandSmall = AppTheme.cinzel(
+  static TextStyle get brandSmall => AppTheme.cinzel(
     size: 18,
     heightPx: 24,
     weight: FontWeight.w600,

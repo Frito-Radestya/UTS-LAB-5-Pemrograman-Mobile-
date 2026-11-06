@@ -205,7 +205,7 @@ class _KategoriPageState extends State<KategoriPage> {
                                 color: AppColors.surface,
                                 border: Border.all(color: AppColors.border),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.menu_book_outlined,
                                 color: AppColors.textMuted,
                                 size: 28,
@@ -320,7 +320,7 @@ class _KategoriPageState extends State<KategoriPage> {
                                     ],
                                   ),
                                 ),
-                                const Icon(
+                                Icon(
                                   Icons.chevron_right,
                                   color: AppColors.textMuted,
                                   size: 18,
@@ -358,7 +358,7 @@ class _KategoriPageState extends State<KategoriPage> {
             label,
             style: AppTextStyles.bodyMedium.copyWith(
               fontWeight: on ? FontWeight.w600 : FontWeight.w500,
-              color: on ? AppColors.text : AppColors.textMuted,
+              color: on ? AppColors.onPrimary : AppColors.textMuted,
             ),
           ),
         ),

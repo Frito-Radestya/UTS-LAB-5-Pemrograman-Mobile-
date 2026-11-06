@@ -151,7 +151,7 @@ class _ErrorScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
+                Icon(
                   Icons.error_outline,
                   color: AppColors.primaryText,
                   size: 40,

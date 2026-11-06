@@ -46,7 +46,7 @@ class PrimaryButton extends StatelessWidget {
               child: Text(
                 label,
                 style: AppTextStyles.titleMedium.copyWith(
-                  color: enabled ? AppColors.text : AppColors.textMuted,
+                  color: enabled ? AppColors.onPrimary : AppColors.textMuted,
                 ),
               ),
             ),

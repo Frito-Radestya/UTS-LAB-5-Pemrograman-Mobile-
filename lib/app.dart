@@ -31,9 +31,8 @@ import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/profile/progress_controller.dart';
 import 'package:kage/features/quiz/quiz_controller.dart';
 import 'package:kage/features/settings/settings_controller.dart';
+import 'package:kage/theme/app_colors.dart';
 import 'package:kage/theme/app_theme.dart';
-
-final _rootKey = GlobalKey<NavigatorState>();
 
 const double _maxContentWidth = 520;
 
@@ -64,11 +63,15 @@ Page<void> _page(Widget child) {
   );
 }
 
-GoRouter createRouter(AppServices services, {String initialLocation = '/'}) {
+GoRouter createRouter(
+  AppServices services, {
+  String initialLocation = '/',
+  GlobalKey<NavigatorState>? navigatorKey,
+}) {
   final auth = services.auth;
   final quiz = services.quiz;
   return GoRouter(
-    navigatorKey: _rootKey,
+    navigatorKey: navigatorKey ?? GlobalKey<NavigatorState>(),
     initialLocation: initialLocation,
     refreshListenable: services.routerListenable,
     redirect: (context, state) {
@@ -184,19 +187,26 @@ class KageApp extends StatefulWidget {
   State<KageApp> createState() => _KageAppState();
 }
 
-class _KageAppState extends State<KageApp> {
+class _KageAppState extends State<KageApp> with WidgetsBindingObserver {
   late final AppServices _services;
   late final GoRouter _router;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _services = widget.services;
     _router = createRouter(_services);
   }
 
   @override
+  void didChangePlatformBrightness() {
+    if (mounted) setState(() {});
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _router.dispose();
     _services.dispose();
     super.dispose();
@@ -223,11 +233,23 @@ class _KageAppState extends State<KageApp> {
       ],
       child: Consumer<SettingsController>(
         builder: (context, settings, _) {
-          _applySystemBars(context, settings.theme);
+          final platformBrightness =
+              WidgetsBinding.instance.platformDispatcher.platformBrightness;
+          final isLight = settings.theme == KageTheme.terang ||
+              (settings.theme == KageTheme.sistem &&
+                  platformBrightness == Brightness.light);
+          AppColors.isLight = isLight;
+          _applySystemBars(settings.theme);
           return MaterialApp.router(
             title: 'KAGE — The Quiz Sanctuary',
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.dark(),
+            theme: AppTheme.light(),
+            darkTheme: AppTheme.dark(),
+            themeMode: switch (settings.theme) {
+              KageTheme.gelap => ThemeMode.dark,
+              KageTheme.terang => ThemeMode.light,
+              KageTheme.sistem => ThemeMode.system,
+            },
             locale: Locale(settings.localeCode),
             supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: const [
@@ -245,13 +267,14 @@ class _KageAppState extends State<KageApp> {
   }
 
   /// Menyamakan warna bilah sistem dengan pilihan tema.
-  ///
-  /// Palet KAGE selalu gelap; pilihan "Sistem" hanya membuat bilah status dan
-  /// navigasi mengikuti mode perangkat (U-08).
-  void _applySystemBars(BuildContext context, KageTheme theme) {
-    final brightness = theme == KageTheme.sistem
-        ? MediaQuery.platformBrightnessOf(context)
-        : Brightness.dark;
+  void _applySystemBars(KageTheme theme) {
+    final platformBrightness =
+        WidgetsBinding.instance.platformDispatcher.platformBrightness;
+    final brightness = switch (theme) {
+      KageTheme.gelap => Brightness.dark,
+      KageTheme.terang => Brightness.light,
+      KageTheme.sistem => platformBrightness,
+    };
     SystemChrome.setSystemUIOverlayStyle(
       brightness == Brightness.dark
           ? SystemUiOverlayStyle.light
@@ -262,26 +285,35 @@ class _KageAppState extends State<KageApp> {
   /// Membuat pengalaman web/tablet tetap terasa seperti aplikasi mobile:
   /// konten dibatasi 520 px dan diletakkan di tengah layar lebar.
   Widget _responsiveFrame(BuildContext context, Widget? child) {
-    final media = MediaQuery.maybeOf(context);
     if (child == null) return const SizedBox.shrink();
-    if (media == null || media.size.width <= _maxContentWidth) return child;
+    final media = MediaQuery.maybeOf(context);
+    if (media == null) return child;
 
-    const frameWidth = _maxContentWidth;
+    final theme = Theme.of(context);
+    AppColors.isLight = theme.brightness == Brightness.light;
+
+    final isWide = media.size.width > _maxContentWidth;
+    final frameWidth = isWide ? _maxContentWidth : media.size.width;
+
     return ColoredBox(
-      color: const Color(0xFF05070C),
+      color: isWide ? AppColors.outerFrameBackground : Colors.transparent,
       child: Center(
         child: Container(
           width: frameWidth,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.55),
-                blurRadius: 42,
-              ),
-            ],
-          ),
+          decoration: isWide
+              ? BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.55),
+                      blurRadius: 42,
+                    ),
+                  ],
+                )
+              : null,
           child: MediaQuery(
-            data: media.copyWith(size: Size(frameWidth, media.size.height)),
+            data: isWide
+                ? media.copyWith(size: Size(frameWidth, media.size.height))
+                : media,
             child: child,
           ),
         ),

@@ -131,7 +131,7 @@ class BadgePage extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: badge.earned ? AppColors.surface : const Color(0xFF13151B),
+          color: badge.earned ? AppColors.surface : AppColors.lockedBadgeSurface,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: badge.earned ? AppColors.border : AppColors.borderStrong,
@@ -166,7 +166,7 @@ class BadgePage extends StatelessWidget {
               ),
             ),
             if (badge.earned)
-              const Icon(Icons.check, color: AppColors.success)
+              Icon(Icons.check, color: AppColors.success)
             else
               Container(
                 padding: const EdgeInsets.symmetric(

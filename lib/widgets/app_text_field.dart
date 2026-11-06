@@ -157,7 +157,7 @@ class _AppTextFieldState extends State<AppTextField> {
             padding: const EdgeInsets.fromLTRB(4, 6, 0, 0),
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.info_outline,
                   size: 13,
                   color: AppColors.primaryText,

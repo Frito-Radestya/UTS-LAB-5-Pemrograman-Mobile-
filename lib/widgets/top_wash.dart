@@ -6,11 +6,11 @@ class TopWash extends StatelessWidget {
   const TopWash({
     super.key,
     this.height = 220,
-    this.colors = const [Color(0xFF161433), AppColors.background],
+    this.colors,
   });
 
   final double height;
-  final List<Color> colors;
+  final List<Color>? colors;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class TopWash extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: colors,
+              colors: colors ?? AppColors.topWashColors,
             ),
           ),
         ),

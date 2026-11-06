@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:kage/theme/app_colors.dart';
+
 class StarField extends StatelessWidget {
   const StarField({super.key, this.height = 360});
 
@@ -18,7 +20,8 @@ class StarField extends StatelessWidget {
 class _StarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.white;
+    final paint = Paint()
+      ..color = AppColors.isLight ? const Color(0x4D7A5618) : Colors.white;
     const stars = [
       Offset(30, 60),
       Offset(90, 130),
