@@ -30,7 +30,6 @@ class PengaturanPage extends StatelessWidget {
         children: [
           const TopWash(
             height: 220,
-            colors: [Color(0xFF1D1535), AppColors.background],
           ),
           SafeArea(
             child: Column(
@@ -77,12 +76,9 @@ class PengaturanPage extends StatelessWidget {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  gradient: const RadialGradient(
-                                    center: Alignment(-0.4, -0.5),
-                                    colors: [
-                                      Color(0xFF3B2A4E),
-                                      AppColors.surface,
-                                    ],
+                                  gradient: RadialGradient(
+                                    center: const Alignment(-0.4, -0.5),
+                                    colors: AppColors.avatarGradientColors,
                                   ),
                                   border: Border.all(
                                     color: AppColors.gold,
@@ -252,7 +248,7 @@ class PengaturanPage extends StatelessWidget {
           for (var i = 0; i < children.length; i++) ...[
             children[i],
             if (i != children.length - 1)
-              const Divider(height: 1, color: AppColors.border),
+              Divider(height: 1, color: AppColors.border),
           ],
         ],
       ),
@@ -294,7 +290,7 @@ class PengaturanPage extends StatelessWidget {
                 Text(trailing, style: AppTextStyles.bodySmallMuted),
                 const SizedBox(width: 6),
               ],
-              const Icon(
+              Icon(
                 Icons.chevron_right,
                 size: 18,
                 color: AppColors.textMuted,
@@ -368,7 +364,7 @@ class PengaturanPage extends StatelessWidget {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Izinkan notifikasi?', style: AppTextStyles.titleLarge),
         content: Text(
@@ -514,7 +510,7 @@ class PengaturanPage extends StatelessWidget {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Ekspor Riwayat', style: AppTextStyles.titleLarge),
         content: SingleChildScrollView(
@@ -575,7 +571,7 @@ class PengaturanPage extends StatelessWidget {
           backgroundColor: AppColors.surface,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-            side: const BorderSide(color: AppColors.borderStrong),
+            side: BorderSide(color: AppColors.borderStrong),
           ),
           title: Text('Ubah Password', style: AppTextStyles.titleLarge),
           content: SingleChildScrollView(
@@ -665,7 +661,7 @@ class PengaturanPage extends StatelessWidget {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Hapus semua data?', style: AppTextStyles.titleLarge),
         content: Text(
@@ -704,7 +700,7 @@ class PengaturanPage extends StatelessWidget {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Edit Profil', style: AppTextStyles.titleLarge),
         content: SingleChildScrollView(
@@ -766,7 +762,7 @@ class PengaturanPage extends StatelessWidget {
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderStrong),
+          side: BorderSide(color: AppColors.borderStrong),
         ),
         title: Text('Keluar dari akun?', style: AppTextStyles.titleLarge),
         content: Text(

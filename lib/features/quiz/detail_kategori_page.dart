@@ -50,21 +50,16 @@ class DetailKategoriPage extends StatelessWidget {
             height: headerH,
             child: Stack(
               children: [
-                const DecoratedBox(
+                DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF070B1E),
-                        Color(0xFF141A45),
-                        Color(0xFF2B1D4A),
-                        AppColors.background,
-                      ],
-                      stops: [0, 0.55, 0.85, 1],
+                      colors: AppColors.heroSkyColors,
+                      stops: const [0, 0.55, 0.85, 1],
                     ),
                   ),
-                  child: SizedBox.expand(),
+                  child: const SizedBox.expand(),
                 ),
                 StarField(height: headerH),
                 Positioned.fill(
@@ -195,13 +190,12 @@ class DetailKategoriPage extends StatelessWidget {
                         _row(
                           Icons.assignment_outlined,
                           '$activeCount Soal',
-                          trailing: const Icon(
-                            Icons.chevron_right,
-                            color: AppColors.textMuted,
-                            size: 18,
+                          trailing: Text(
+                            '${QuizTimerConfig.secondsFor(effective ?? Difficulty.pemula)} dtk / soal',
+                            style: AppTextStyles.bodyMuted,
                           ),
                         ),
-                        const Divider(height: 1, color: AppColors.border),
+                        Divider(height: 1, color: AppColors.border),
                         _row(
                           Icons.emoji_events_outlined,
                           'Skor Terbaik',

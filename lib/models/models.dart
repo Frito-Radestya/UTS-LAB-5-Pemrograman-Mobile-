@@ -13,16 +13,19 @@ enum Difficulty { pemula, menengah, ahli }
 /// bilah sistem mengikuti mode perangkat.
 enum KageTheme {
   gelap,
+  terang,
   sistem;
 
   String get label => switch (this) {
     KageTheme.gelap => 'Gelap',
+    KageTheme.terang => 'Terang',
     KageTheme.sistem => 'Sistem',
   };
 
   String get description => switch (this) {
-    KageTheme.gelap => 'Tampilan KAGE selalu gelap.',
-    KageTheme.sistem => 'Bilah sistem mengikuti mode perangkat.',
+    KageTheme.gelap => 'Tampilan KAGE bernuansa malam.',
+    KageTheme.terang => 'Tampilan KAGE bernuansa terang.',
+    KageTheme.sistem => 'Mengikuti mode gelap atau terang perangkat.',
   };
 }
 

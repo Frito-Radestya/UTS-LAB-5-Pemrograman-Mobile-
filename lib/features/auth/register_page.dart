@@ -144,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Stack(
         children: [
           // Top gradient
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             top: 0,
@@ -154,12 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF120F2A),
-                    Color(0xFF1D1A3F),
-                    AppColors.background,
-                  ],
-                  stops: [0, 0.45, 1],
+                  colors: AppColors.topWashColors,
                 ),
               ),
             ),
@@ -170,14 +165,14 @@ class _RegisterPageState extends State<RegisterPage> {
             right: 0,
             bottom: 0,
             height: h * 0.36,
-            child: const Opacity(
+            child: Opacity(
               opacity: 0.7,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
-                    colors: [Color(0xFF2A1230), AppColors.background],
+                    colors: AppColors.topWashColors,
                   ),
                 ),
               ),

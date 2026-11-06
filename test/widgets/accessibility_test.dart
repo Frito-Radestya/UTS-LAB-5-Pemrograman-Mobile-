@@ -143,34 +143,40 @@ void main() {
   });
 
   group('U-02 kontras teks', () {
-    test('token teks memenuhi rasio 4.5:1', () {
-      final backgrounds = <String, Color>{
-        'background': AppColors.background,
-        'surface': AppColors.surface,
-      };
-      final textColors = <String, Color>{
-        'text': AppColors.text,
-        'textSoft': AppColors.textSoft,
-        'textMuted': AppColors.textMuted,
-        'textQuote': AppColors.textQuote,
-        'primaryText': AppColors.primaryText,
-        'gold': AppColors.gold,
-        'success': AppColors.success,
-      };
+    for (final isLight in <bool>[false, true]) {
+      final modeName = isLight ? 'terang' : 'gelap';
+      test('token teks memenuhi rasio 4.5:1 pada mode $modeName', () {
+        AppColors.isLight = isLight;
+        addTearDown(() => AppColors.isLight = false);
 
-      textColors.forEach((name, color) {
-        backgrounds.forEach((backgroundName, background) {
-          final ratio = _contrast(color, background);
-          expect(
-            ratio,
-            greaterThanOrEqualTo(4.5),
-            reason:
-                '$name di atas $backgroundName hanya '
-                '${ratio.toStringAsFixed(2)}:1',
-          );
+        final backgrounds = <String, Color>{
+          'background': AppColors.background,
+          'surface': AppColors.surface,
+        };
+        final textColors = <String, Color>{
+          'text': AppColors.text,
+          'textSoft': AppColors.textSoft,
+          'textMuted': AppColors.textMuted,
+          'textQuote': AppColors.textQuote,
+          'primaryText': AppColors.primaryText,
+          'gold': AppColors.gold,
+          'success': AppColors.success,
+        };
+
+        textColors.forEach((name, color) {
+          backgrounds.forEach((backgroundName, background) {
+            final ratio = _contrast(color, background);
+            expect(
+              ratio,
+              greaterThanOrEqualTo(4.5),
+              reason:
+                  '$name di atas $backgroundName ($modeName) hanya '
+                  '${ratio.toStringAsFixed(2)}:1',
+            );
+          });
         });
       });
-    });
+    }
   });
 
   group('U-02 area sentuh minimal 48 dp', () {

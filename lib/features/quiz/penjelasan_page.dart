@@ -33,7 +33,7 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
     final quiz = context.watch<QuizController>();
     final q = quiz.currentQuestion;
     if (q == null) {
-      return const Scaffold(backgroundColor: AppColors.background);
+      return Scaffold(backgroundColor: AppColors.background);
     }
     const letters = ['A', 'B', 'C', 'D'];
     final correct = quiz.showingCorrect;
@@ -57,7 +57,13 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    correct ? const Color(0xFF10261F) : const Color(0xFF2A1218),
+                    correct
+                        ? (AppColors.isLight
+                              ? const Color(0xFFD9F2E6)
+                              : const Color(0xFF10261F))
+                        : (AppColors.isLight
+                              ? const Color(0xFFFADEE0)
+                              : const Color(0xFF2A1218)),
                     AppColors.background,
                   ],
                 ),
@@ -147,7 +153,7 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
                                     ),
                                     child: Icon(
                                       correct ? Icons.check : Icons.close,
-                                      color: AppColors.text,
+                                      color: AppColors.onPrimary,
                                     ),
                                   ),
                                   const SizedBox(width: 14),
@@ -233,7 +239,7 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        const Icon(
+                                        Icon(
                                           Icons.auto_awesome,
                                           color: AppColors.gold,
                                           size: 18,

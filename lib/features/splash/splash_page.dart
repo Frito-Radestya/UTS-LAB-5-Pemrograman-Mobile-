@@ -50,20 +50,14 @@ class _SplashPageState extends State<SplashPage>
           return Stack(
             children: [
               // Background gradient
-              const Positioned.fill(
+              Positioned.fill(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF070B1E),
-                        Color(0xFF141A45),
-                        Color(0xFF2B1D4A),
-                        Color(0xFF14122A),
-                        AppColors.background,
-                      ],
-                      stops: [0, 0.36, 0.58, 0.78, 1],
+                      colors: AppColors.heroSkyColors,
+                      stops: const [0, 0.4, 0.7, 1],
                     ),
                   ),
                 ),
@@ -83,7 +77,11 @@ class _SplashPageState extends State<SplashPage>
                 height: h * 0.25,
                 child: ClipPath(
                   clipper: MountainClipper(),
-                  child: const ColoredBox(color: Color(0xE60C1030)),
+                  child: ColoredBox(
+                    color: AppColors.isLight
+                        ? const Color(0x99DFD5C0)
+                        : const Color(0xE60C1030),
+                  ),
                 ),
               ),
               // Path wedge
@@ -94,14 +92,14 @@ class _SplashPageState extends State<SplashPage>
                 height: h * 0.42,
                 child: ClipPath(
                   clipper: PathClipper(),
-                  child: const Opacity(
+                  child: Opacity(
                     opacity: 0.55,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Color(0xFF2A2742), AppColors.background],
+                          colors: AppColors.topWashColors,
                         ),
                       ),
                     ),

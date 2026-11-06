@@ -29,7 +29,7 @@ class AnswerReviewPanel extends StatelessWidget {
       color: AppColors.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: const BorderSide(color: AppColors.borderStrong),
+        side: BorderSide(color: AppColors.borderStrong),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
