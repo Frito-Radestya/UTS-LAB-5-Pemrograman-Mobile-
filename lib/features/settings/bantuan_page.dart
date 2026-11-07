@@ -92,41 +92,44 @@ class BantuanPage extends StatelessWidget {
                       for (final item in _faq)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.surface,
-                              borderRadius: BorderRadius.circular(14),
-                              border: Border.all(color: AppColors.border),
-                            ),
-                            child: Theme(
-                              data: Theme.of(context)
-                                  .copyWith(dividerColor: Colors.transparent),
-                              child: ExpansionTile(
-                                tilePadding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                ),
-                                childrenPadding: const EdgeInsets.fromLTRB(
-                                  16,
-                                  0,
-                                  16,
-                                  14,
-                                ),
-                                iconColor: AppColors.gold,
-                                collapsedIconColor: AppColors.textMuted,
-                                title: Text(
-                                  item.question,
-                                  style: AppTextStyles.bodyMedium,
-                                ),
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      item.answer,
-                                      style:
-                                          AppTextStyles.bodySmallRelaxedMuted,
-                                    ),
+                          child: Material(
+                            color: AppColors.surface,
+                            borderRadius: BorderRadius.circular(14),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(color: AppColors.border),
+                              ),
+                              child: Theme(
+                                data: Theme.of(context)
+                                    .copyWith(dividerColor: Colors.transparent),
+                                child: ExpansionTile(
+                                  tilePadding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
                                   ),
-                                ],
+                                  childrenPadding: const EdgeInsets.fromLTRB(
+                                    16,
+                                    0,
+                                    16,
+                                    14,
+                                  ),
+                                  iconColor: AppColors.gold,
+                                  collapsedIconColor: AppColors.textMuted,
+                                  title: Text(
+                                    item.question,
+                                    style: AppTextStyles.bodyMedium,
+                                  ),
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        item.answer,
+                                        style:
+                                            AppTextStyles.bodySmallRelaxedMuted,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
