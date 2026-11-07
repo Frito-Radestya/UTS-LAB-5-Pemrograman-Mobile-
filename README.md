@@ -83,19 +83,52 @@ Aplikasi berjalan sepenuhnya secara lokal di perangkat (tanpa membutuhkan databa
 
 ### c. Screenshot Tiap Page Aplikasi
 
+Tangkapan layar diambil secara presisi pada viewport ponsel 390 × 844 (@2x 780 × 1688 px) dengan font kustom Onest/Cinzel dan aset SVG asli KAGE sesuai kondisi aplikasi saat ini.
+
+#### 1. Alur Autentikasi & Beranda
 <div align="center">
 
-| Halaman Login | Halaman Beranda | Halaman Kategori |
-|:---:|:---:|:---:|
-| <img src="docs/screenshots/login.png" width="220" alt="Halaman login KAGE"> | <img src="docs/screenshots/beranda.png" width="220" alt="Halaman beranda KAGE"> | <img src="docs/screenshots/kategori.png" width="220" alt="Halaman kategori KAGE"> |
-
-| Halaman Kuis | Halaman Hasil Kuis | Halaman Profil |
-|:---:|:---:|:---:|
-| <img src="docs/screenshots/kuis.png" width="220" alt="Halaman kuis KAGE"> | <img src="docs/screenshots/hasil.png" width="220" alt="Halaman hasil kuis KAGE"> | <img src="docs/screenshots/profil.png" width="220" alt="Halaman profil KAGE"> |
+| Splash Screen | Login | Registrasi & Validasi | Beranda (Mode Gelap) |
+|:---:|:---:|:---:|:---:|
+| <img src="docs/screenshots/splash.png" width="180" alt="Splash Screen"> | <img src="docs/screenshots/login.png" width="180" alt="Login"> | <img src="docs/screenshots/register.png" width="180" alt="Register"> | <img src="docs/screenshots/beranda.png" width="180" alt="Beranda"> |
 
 </div>
 
-Tangkapan layar diambil dari build web pada viewport ponsel 390 × 844.
+#### 2. Eksplorasi Kategori & Pengerjaan Kuis
+<div align="center">
+
+| Daftar Kategori & Search | Detail Kategori & Tingkat | Pengerjaan Kuis & Timer | Pembahasan & Fakta Menarik |
+|:---:|:---:|:---:|:---:|
+| <img src="docs/screenshots/kategori.png" width="180" alt="Kategori"> | <img src="docs/screenshots/detail_kategori.png" width="180" alt="Detail Kategori"> | <img src="docs/screenshots/kuis.png" width="180" alt="Kuis"> | <img src="docs/screenshots/penjelasan.png" width="180" alt="Penjelasan Jawaban"> |
+
+</div>
+
+#### 3. Hasil Kuis, Riwayat & Profil Pengguna
+<div align="center">
+
+| Hasil Kuis (Atas Nama Pengguna) | Riwayat & Grafik Tren Skor | Detail Percobaan Riwayat | Profil Pengguna, XP & Level |
+|:---:|:---:|:---:|:---:|
+| <img src="docs/screenshots/hasil.png" width="180" alt="Hasil Kuis"> | <img src="docs/screenshots/riwayat.png" width="180" alt="Riwayat"> | <img src="docs/screenshots/detail_riwayat.png" width="180" alt="Detail Riwayat"> | <img src="docs/screenshots/profil.png" width="180" alt="Profil"> |
+
+</div>
+
+#### 4. Pencapaian, Pengaturan & Bantuan
+<div align="center">
+
+| Badge & Pencapaian | Pengaturan Aplikasi | Dialog Pemilihan Tema | Bantuan & FAQ |
+|:---:|:---:|:---:|:---:|
+| <img src="docs/screenshots/badge.png" width="180" alt="Badge"> | <img src="docs/screenshots/pengaturan.png" width="180" alt="Pengaturan"> | <img src="docs/screenshots/pengaturan_dialog_tema.png" width="180" alt="Dialog Tema"> | <img src="docs/screenshots/bantuan.png" width="180" alt="Bantuan FAQ"> |
+
+</div>
+
+#### 5. Dual-Theme Showcase (Mode Terang / Light Mode — Bonus Poin 1)
+<div align="center">
+
+| Beranda (Mode Terang) | Pengerjaan Kuis (Mode Terang) | Hasil Kuis (Mode Terang) |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/beranda_terang.png" width="220" alt="Beranda Terang"> | <img src="docs/screenshots/kuis_terang.png" width="220" alt="Kuis Terang"> | <img src="docs/screenshots/hasil_terang.png" width="220" alt="Hasil Terang"> |
+
+</div>
 
 ## Alur Aplikasi
 
