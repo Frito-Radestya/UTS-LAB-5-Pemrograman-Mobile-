@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kage/theme/app_colors.dart';
 import 'package:kage/widgets/kage_bottom_nav.dart';
+import 'package:kage/widgets/sakura_petal.dart';
 
 class ScreenScaffold extends StatelessWidget {
   const ScreenScaffold({
@@ -9,11 +10,13 @@ class ScreenScaffold extends StatelessWidget {
     required this.child,
     this.navIndex,
     this.stack = const [],
+    this.showPetals = true,
   });
 
   final Widget child;
   final int? navIndex;
   final List<Widget> stack;
+  final bool showPetals;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class ScreenScaffold extends StatelessWidget {
             child: Stack(
               children: [
                 ...stack,
+                if (showPetals) const SakuraPetalDrift(),
                 SafeArea(bottom: false, child: child),
               ],
             ),

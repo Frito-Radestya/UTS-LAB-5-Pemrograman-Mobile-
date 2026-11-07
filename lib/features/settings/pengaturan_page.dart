@@ -32,6 +32,7 @@ class PengaturanPage extends StatelessWidget {
           const TopWash(
             height: 220,
           ),
+          const SakuraPetalDrift(),
           SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

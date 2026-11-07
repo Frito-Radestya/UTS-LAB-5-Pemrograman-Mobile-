@@ -40,6 +40,7 @@ class BadgePage extends StatelessWidget {
               ),
             ),
           ),
+          const SakuraPetalDrift(),
           SafeArea(
             child: Column(
               children: [
