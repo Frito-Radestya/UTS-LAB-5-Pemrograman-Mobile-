@@ -15,6 +15,7 @@ class BerandaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final auth = context.watch<AuthController>();
     final history = context.watch<HistoryController>();
     final quiz = context.watch<QuizController>();
@@ -104,8 +105,13 @@ class BerandaPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text('Progres Belajar', style: AppTextStyles.bodyMuted),
-                      const Spacer(),
+                      Expanded(
+                        child: Text(
+                          'Progres Belajar',
+                          style: AppTextStyles.bodyMuted,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
                       Text(
                         '${((history.learningPathDone / categoryCount) * 100).round()}%',
                         style: AppTextStyles.labelGold,

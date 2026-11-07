@@ -18,6 +18,7 @@ class DetailKategoriPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final bank = context.read<QuizRepository>();
     final cat = bank.categoryById(id);
     final quiz = context.watch<QuizController>();
@@ -95,8 +96,10 @@ class DetailKategoriPage extends StatelessWidget {
           ),
           // Scrollable body
           Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+            child: SafeArea(
+              top: false,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -218,6 +221,7 @@ class DetailKategoriPage extends StatelessWidget {
                           },
                   ),
                 ],
+              ),
               ),
             ),
           ),

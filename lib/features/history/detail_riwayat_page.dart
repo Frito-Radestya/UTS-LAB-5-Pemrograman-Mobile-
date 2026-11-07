@@ -19,6 +19,7 @@ class DetailRiwayatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final bank = context.read<QuizRepository>();
     final quiz = context.read<QuizController>();
     final category = bank.categoryById(result.categoryId);

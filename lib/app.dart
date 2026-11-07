@@ -34,7 +34,8 @@ import 'package:kage/features/settings/settings_controller.dart';
 import 'package:kage/theme/app_colors.dart';
 import 'package:kage/theme/app_theme.dart';
 
-const double _maxContentWidth = 520;
+const double _tabletMaxContentWidth = 720;
+const double _desktopMaxContentWidth = 880;
 
 /// Transisi halus yang konsisten di seluruh aplikasi: konten memudar masuk
 /// sambil bergeser sedikit ke atas.
@@ -245,6 +246,7 @@ class _KageAppState extends State<KageApp> with WidgetsBindingObserver {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
+            themeAnimationDuration: Duration.zero,
             themeMode: switch (settings.theme) {
               KageTheme.gelap => ThemeMode.dark,
               KageTheme.terang => ThemeMode.light,
@@ -282,41 +284,48 @@ class _KageAppState extends State<KageApp> with WidgetsBindingObserver {
     );
   }
 
-  /// Membuat pengalaman web/tablet tetap terasa seperti aplikasi mobile:
-  /// konten dibatasi 520 px dan diletakkan di tengah layar lebar.
+  /// Tata letak adaptif untuk Android (mobile), tablet, dan laptop/web:
+  /// latar belakang, TopWash, dan navigasi bawah membentang penuh (full-bleed),
+  /// sedangkan isi halaman diatur proporsional di tengah layar lebar.
   Widget _responsiveFrame(BuildContext context, Widget? child) {
     if (child == null) return const SizedBox.shrink();
     final media = MediaQuery.maybeOf(context);
     if (media == null) return child;
 
-    final theme = Theme.of(context);
-    AppColors.isLight = theme.brightness == Brightness.light;
+    final platformBrightness =
+        WidgetsBinding.instance.platformDispatcher.platformBrightness;
+    final themeSetting = _services.settings.theme;
+    AppColors.isLight = themeSetting == KageTheme.terang ||
+        (themeSetting == KageTheme.sistem &&
+            platformBrightness == Brightness.light);
 
-    final isWide = media.size.width > _maxContentWidth;
-    final frameWidth = isWide ? _maxContentWidth : media.size.width;
+    final w = media.size.width;
+    final double targetMax;
+    if (w >= 1024) {
+      targetMax = _desktopMaxContentWidth;
+    } else if (w >= 600) {
+      targetMax = _tabletMaxContentWidth;
+    } else {
+      targetMax = w;
+    }
+
+    final extraHorizontal = w > targetMax ? (w - targetMax) / 2 : 0.0;
+    final paddedMedia = media.copyWith(
+      padding: media.padding.copyWith(
+        left: media.padding.left + extraHorizontal,
+        right: media.padding.right + extraHorizontal,
+      ),
+      viewPadding: media.viewPadding.copyWith(
+        left: media.viewPadding.left + extraHorizontal,
+        right: media.viewPadding.right + extraHorizontal,
+      ),
+    );
 
     return ColoredBox(
-      color: isWide ? AppColors.outerFrameBackground : Colors.transparent,
-      child: Center(
-        child: Container(
-          width: frameWidth,
-          decoration: isWide
-              ? BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.55),
-                      blurRadius: 42,
-                    ),
-                  ],
-                )
-              : null,
-          child: MediaQuery(
-            data: isWide
-                ? media.copyWith(size: Size(frameWidth, media.size.height))
-                : media,
-            child: child,
-          ),
-        ),
+      color: AppColors.background,
+      child: MediaQuery(
+        data: paddedMedia,
+        child: child,
       ),
     );
   }

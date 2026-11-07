@@ -75,7 +75,6 @@ void main() {
         final file = File('docs/screenshots/$filename');
         file.parent.createSync(recursive: true);
         file.writeAsBytesSync(bytes);
-        print('Captured: $filename');
       });
     }
 
@@ -341,7 +340,5 @@ void main() {
     key = await pumpPage(app, '/bantuan');
     await tester.pump(const Duration(milliseconds: 300));
     await capture(key, 'bantuan.png');
-
-    print('All screenshots generated successfully!');
   });
 }
