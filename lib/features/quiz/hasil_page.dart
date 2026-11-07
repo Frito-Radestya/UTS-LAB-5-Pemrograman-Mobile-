@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'package:kage/data/repositories/quiz_repository.dart';
 import 'package:kage/models/models.dart';
+import 'package:kage/features/auth/auth_controller.dart';
 import 'package:kage/features/history/history_controller.dart';
 import 'package:kage/features/profile/progress.dart';
 import 'package:kage/features/profile/progress_controller.dart';
@@ -102,6 +103,7 @@ class HasilPage extends StatelessWidget {
     };
 
     // XP yang baru diperoleh dan perubahan levelnya.
+    final auth = context.watch<AuthController>();
     final progress = context.watch<ProgressController>();
     final xpGained = (r.score * r.difficulty.xpMultiplier).round();
     final xpBefore = math.max(0, progress.xp - xpGained);
@@ -220,6 +222,14 @@ class HasilPage extends StatelessWidget {
                   const _HasilEmblem(),
                   const SizedBox(height: 16),
                   Text(title, style: AppTextStyles.displayLargeGold),
+                  const SizedBox(height: 2),
+                  Text(
+                    auth.fullName.isEmpty ? auth.firstName : auth.fullName,
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.titleSmall.copyWith(
+                      color: AppColors.textSoft,
+                    ),
+                  ),
                   const SizedBox(height: 4),
                   Text(
                     subtitle,
