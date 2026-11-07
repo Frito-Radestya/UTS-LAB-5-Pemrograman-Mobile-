@@ -50,6 +50,7 @@ void main() {
 
       await _pumpHasil(tester, app);
 
+      expect(find.text('Budi'), findsOneWidget);
       expect(find.text('Tinjau jawaban'), findsOneWidget);
       expect(app.quiz.review, hasLength(10));
       expect(app.quiz.wrongReview, hasLength(3));

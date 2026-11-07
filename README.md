@@ -6,66 +6,92 @@
 
 ### The Quiz Sanctuary
 
-Aplikasi kuis pilihan ganda bertema kuil Jepang malam hari, dibangun dengan Flutter
+Aplikasi kuis pilihan ganda bertema kuil Jepang, dibangun dengan Flutter
 untuk UTS Lab Pemrograman Mobile.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.47-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.13-0175C2?logo=dart&logoColor=white)](https://dart.dev)
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-4A4F5E)](#menjalankan-aplikasi)
-[![CI](https://github.com/Frito-Radestya/UTS_LAB_Pemrograman-Mobile-5/actions/workflows/ci.yml/badge.svg)](https://github.com/Frito-Radestya/UTS_LAB_Pemrograman-Mobile-5/actions/workflows/ci.yml)
+[![CI](https://github.com/Frito-Radestya/UTS-LAB-5-Pemrograman-Mobile-/actions/workflows/ci.yml/badge.svg)](https://github.com/Frito-Radestya/UTS-LAB-5-Pemrograman-Mobile-/actions/workflows/ci.yml)
 
 </div>
 
 ---
 
-## Tentang Proyek
+## 1. Identitas Mahasiswa
 
-**KAGE — The Quiz Sanctuary** adalah aplikasi kuis yang mengajak pengguna belajar
-melalui perjalanan visual bernuansa kuil Jepang: gerbang torii, lentera, bulan,
-kelopak sakura, dan langit malam. Aplikasi memiliki alur lengkap mulai dari
-splash screen, login/registrasi, pemilihan kategori, pengerjaan kuis, pembahasan
-jawaban, hingga hasil dan riwayat skor.
+| Informasi | Detail |
+|---|---|
+| **Nama** | Frito Radestya. S |
+| **NIM** | 241401030 |
+| **Lab** | 5 Pemrograman Mobile |
 
-Tidak ada backend: seluruh data disimpan **secara lokal di perangkat** memakai
-`shared_preferences` (sesi login dan pengaturan) serta Hive (riwayat kuis, XP, dan
-kuis yang sedang berjalan). Menutup aplikasi tidak menghilangkan progres belajar.
-Cocok digunakan sebagai proyek pembelajaran Flutter dan demonstrasi UI/UX.
+---
 
-## Fitur Utama
+## 2. Informasi Aplikasi
 
-- **Splash screen sinematik** dengan animasi lentera, kelopak sakura, dan progress bar.
-- **Login & registrasi** dengan validasi form, pesan error, dan toggle password.
-- **Beranda personal** berisi sapaan, progres belajar, kartu lanjutkan petualangan,
-  statistik, kategori, dan kutipan.
-- **5 kategori kuis**: Sains, Teknologi, Sejarah, Logika, dan Pengetahuan Umum.
-- **70 soal pilihan ganda** dengan pembahasan dan fakta menarik. Sains sudah
-  lengkap untuk tiga tingkat (10 soal per tingkat); kategori lain masih bertahap
-  dan menandai tingkat yang belum tersedia sebagai "Segera hadir".
-- **Pemilihan tingkat kesulitan**: Pemula, Menengah, dan Ahli dengan pengali XP
-  berbeda serta jumlah soal aktual per tingkat.
-- **Penyimpanan progres kuis** ke Beranda, termasuk konfirmasi saat keluar di tengah kuis.
-- **Data tersimpan permanen** di perangkat: sesi login, riwayat, XP, kuis tersimpan,
-  dan pengaturan tetap ada setelah aplikasi ditutup.
-- **Halaman hasil** dengan animasi skor, jumlah benar, akurasi, dan durasi.
-- **Riwayat skor** dengan filter kategori dan ringkasan statistik.
-- **Badge & pencapaian** yang dihitung dari riwayat kuis.
-- **Profil pengguna** dengan level, XP, edit nama/email, dan pengaturan.
-- **Bottom navigation** untuk Beranda, Kuis, Skor, dan Profil.
-- **Transisi halaman halus** (fade + slide) di seluruh aplikasi.
-- **Responsif** untuk ponsel, tablet, dan web; konten dibatasi 520 px di layar lebar.
-- **Dukungan Flutter Web** dengan metadata, manifest, dan ikon KAGE.
+### Nama Aplikasi
+**KAGE — The Quiz Sanctuary**
 
-## Tampilan Aplikasi
+### Deskripsi Singkat Aplikasi
+**KAGE — The Quiz Sanctuary** adalah aplikasi kuis pilihan ganda interaktif yang mengajak pengguna menguji dan memperluas wawasan melalui perjalanan visual bernuansa kuil Jepang (*torii*, lentera, bulan, dan kelopak sakura). Pengguna dapat mendaftarkan/memasukkan nama dan akun, memilih kategori serta tingkat kesulitan, menjawab serangkaian pertanyaan pilihan ganda dengan timer per soal dan pembahasan mendalam, lalu melihat **skor akhir atas nama pengguna tersebut** beserta riwayat, progres XP/level, dan lencana pencapaian (*badge*).
+
+Aplikasi berjalan sepenuhnya secara lokal di perangkat (tanpa membutuhkan database eksternal/backend) menggunakan penyimpanan lokal (`shared_preferences` dan `Hive`), mendukung **Dual-Theme (Mode Gelap & Mode Terang)**, serta dirancang **Adaptive & Responsive** untuk layar ponsel, tablet, maupun browser (Flutter Web).
+
+### Fitur-Fitur yang Tersedia
+- **Splash Screen Sinematik**: Animasi lentera berayun, kelopak sakura jatuh, dan layar pemuatan data (*bootstrap*).
+- **Autentikasi & Identitas Pengguna Lokal**: Registrasi dan login dengan nama lengkap, email/username, dan kata sandi ter-hash PBKDF2-HMAC-SHA256, disertai validasi kekuatan password dan fitur edit profil.
+- **Beranda Personal**: Menampilkan sapaan nama pengguna, progres belajar lintas kategori, kartu *Lanjutkan Petualangan* (resume kuis yang belum selesai), ringkasan statistik (Total Kuis, Akurasi, Streak harian), daftar kategori, dan kutipan.
+- **5 Kategori Kuis & Pencarian/Filter**: Sains, Teknologi, Sejarah, Logika, dan Pengetahuan Umum, dilengkapi fitur pencarian nama/topik serta pengurutan kategori.
+- **3 Tingkat Kesulitan & Timer per Soal**: Tingkat *Pemula* (30 dtk/soal, 1,0× XP), *Menengah* (25 dtk/soal, 1,5× XP), dan *Ahli* (20 dtk/soal, 2,0× XP) dengan pengacakan urutan soal dan opsi jawaban.
+- **Kuis Interaktif & Pembahasan Jawaban**: Indikator nomor soal, bilah progres waktu & soal, penguncian jawaban setelah dikirim, serta halaman penjelasan lengkap berisi perbandingan jawaban pengguna vs jawaban benar dan *Fakta Menarik*.
+- **Halaman Hasil Kuis Atas Nama Pengguna**: Menampilkan nama pengguna, animasi skor akhir (0–100), jumlah benar, durasi pengerjaan, akurasi, perolehan XP/kenaikan level, perbandingan dengan rekor terbaik, tinjauan seluruh soal, dan tombol **Ulangi Soal yang Salah**.
+- **Riwayat Skor, Grafik Tren, & Detail Percobaan**: Filter riwayat berdasarkan kategori, tingkat kesulitan, dan rentang waktu (7/30 hari), grafik batang tren 10 percobaan terakhir, serta ekspor riwayat.
+- **Sistem Level, XP, & Badge Pencapaian**: Kurva level kumulatif dan 5 lencana pencapaian (*First Quiz*, *Perfect 10*, *Streak 7*, *Explorer*, *Quiz Master*).
+- **Dual-Theme (Dark & Light Mode)**: Mendukung tema **Gelap**, **Terang**, dan **Sistem** (mengikuti mode perangkat) dengan rasio kontras teks memenuhi standar aksesibilitas WCAG 2.1 ≥ 4,5:1.
+- **Adaptive & Responsive Design**: Tata letak proporsional yang menyesuaikan ukuran layar ponsel secara dinamis (tanpa overflow pada rotasi maupun skala font hingga 2,0×) serta bingkai terpusat 520 px untuk tablet dan web browser.
+- **Pengaturan Lengkap**: Pengaturan tema (Gelap/Terang/Sistem), bahasa (Indonesia/Inggris), efek suara, getaran (*haptics*), timer per soal, pengingat belajar harian, bantuan FAQ, dan hapus semua data lokal.
+
+---
+
+## 3. Dokumentasi
+
+### a. Credit & Sumber Aset yang Digunakan
+1. **Font Kustom (`assets/fonts/`)**:
+   - **Onest** (*Regular, Medium, SemiBold, Bold*) — Google Fonts / Dmitrii Chirkov & Andrey Kudryavtsev, berlisensi [SIL Open Font License 1.1](assets/fonts/OFL.txt).
+   - **Cinzel** (*SemiBold*) — Google Fonts / Natanael Gama, berlisensi [SIL Open Font License 1.1](assets/fonts/OFL.txt).
+2. **Aset Vektor & Ilustrasi (`assets/svg/`)**:
+   - Ilustrasi SVG orisinal yang dirancang khusus untuk tema kuil KAGE: `logo_emblem.svg`, `torii.svg`, `astrolab.svg`, ikon kategori (`icon_sains.svg`, `icon_teknologi.svg`, `icon_sejarah.svg`, `icon_logika.svg`, `icon_umum.svg`), serta lencana pencapaian (`badge_first_quiz.svg`, `badge_perfect_10.svg`, `badge_streak_7.svg`, `badge_explorer.svg`, `badge_master_locked.svg`).
+3. **Ikon Antarmuka**:
+   - **Material Icons** & **Cupertino Icons** bawaan ekosistem Flutter.
+4. **Pustaka Open-Source (`pubspec.yaml`)**:
+   - `provider` (State Management), `go_router` (Navigasi Deklaratif), `flutter_svg` (Render SVG), `shared_preferences` & `hive` / `hive_flutter` (Penyimpanan Lokal), `flutter_local_notifications` (Pengingat Belajar).
+
+### b. Link Mockup / Prototype Aplikasi
+- **Spesifikasi Desain & Mockup Interaktif (HTML/Canvas)**: Tersedia langsung di repositori pada folder [`docs/kage_package/`](docs/kage_package/):
+  - Dokumen Spesifikasi Desain UI/UX: [`docs/KAGE_DESIGN_SPEC.md`](docs/KAGE_DESIGN_SPEC.md)
+  - File Kanvas Prototype Desain: [`docs/kage_package/design_source/canvas.json`](docs/kage_package/design_source/canvas.json)
+  - Mockup Layar HTML (`design_source/`):
+    - [Main / Splash (`Main.dc.html`)](docs/kage_package/design_source/Main.dc.html)
+    - [Login (`Login.dc.html`)](docs/kage_package/design_source/Login.dc.html) & [Register (`Register.dc.html`)](docs/kage_package/design_source/Register.dc.html)
+    - [Beranda (`Beranda.dc.html`)](docs/kage_package/design_source/Beranda.dc.html)
+    - [Daftar Kategori (`Kategori.dc.html`)](docs/kage_package/design_source/Kategori.dc.html) & [Detail Kategori (`DetailKategori.dc.html`)](docs/kage_package/design_source/DetailKategori.dc.html)
+    - [Kuis (`Kuis.dc.html`)](docs/kage_package/design_source/Kuis.dc.html) & [Penjelasan (`Penjelasan.dc.html`)](docs/kage_package/design_source/Penjelasan.dc.html)
+    - [Hasil Kuis (`Hasil.dc.html`)](docs/kage_package/design_source/Hasil.dc.html)
+    - [Riwayat (`Riwayat.dc.html`)](docs/kage_package/design_source/Riwayat.dc.html), [Profil (`Profil.dc.html`)](docs/kage_package/design_source/Profil.dc.html), [Badge (`Badge.dc.html`)](docs/kage_package/design_source/Badge.dc.html), & [Pengaturan (`Pengaturan.dc.html`)](docs/kage_package/design_source/Pengaturan.dc.html)
+    - [Design System (`DesignSystem.dc.html`)](docs/kage_package/design_source/DesignSystem.dc.html)
+
+### c. Screenshot Tiap Page Aplikasi
 
 <div align="center">
 
-<img src="docs/screenshots/login.png" width="200" alt="Halaman login KAGE">
-<img src="docs/screenshots/beranda.png" width="200" alt="Halaman beranda KAGE">
-<img src="docs/screenshots/kategori.png" width="200" alt="Halaman kategori KAGE">
+| Halaman Login | Halaman Beranda | Halaman Kategori |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/login.png" width="220" alt="Halaman login KAGE"> | <img src="docs/screenshots/beranda.png" width="220" alt="Halaman beranda KAGE"> | <img src="docs/screenshots/kategori.png" width="220" alt="Halaman kategori KAGE"> |
 
-<img src="docs/screenshots/kuis.png" width="200" alt="Halaman kuis KAGE">
-<img src="docs/screenshots/hasil.png" width="200" alt="Halaman hasil kuis KAGE">
-<img src="docs/screenshots/profil.png" width="200" alt="Halaman profil KAGE">
+| Halaman Kuis | Halaman Hasil Kuis | Halaman Profil |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/kuis.png" width="220" alt="Halaman kuis KAGE"> | <img src="docs/screenshots/hasil.png" width="220" alt="Halaman hasil kuis KAGE"> | <img src="docs/screenshots/profil.png" width="220" alt="Halaman profil KAGE"> |
 
 </div>
 
@@ -98,19 +124,20 @@ Splash
 | Tipografi | Font lokal **Onest** & **Cinzel** (`assets/fonts/`) |
 | Ikon | Material Icons + aset SVG khusus KAGE |
 
-### Palet Warna
+### Palet Warna (Dual-Theme: Gelap & Terang)
 
-| Token | Warna | Penggunaan |
-|---|---|---|
-| Primary / Vermilion | `#B9232C` | Tombol utama, jawaban terpilih, progress bar |
-| Background / Midnight | `#0B0D12` | Latar utama |
-| Surface / Charcoal | `#171A22` | Kartu, input, panel |
-| Gold / Antique Gold | `#C9A56A` | Aksen, badge, ornamen, level |
-| Text / Ivory | `#E8E4DD` | Teks utama |
-| Muted | `#8B909C` | Teks sekunder dan metadata |
+| Token | Mode Gelap | Mode Terang | Penggunaan |
+|---|---|---|---|
+| Primary / Vermilion | `#B9232C` | `#B9232C` | Tombol utama, jawaban terpilih, progress bar |
+| Background | `#0B0D12` (Midnight) | `#F7F3EB` (Warm Ivory) | Latar utama halaman |
+| Surface | `#171A22` (Charcoal) | `#FFFFFF` (Pure White) | Kartu, input, panel |
+| Gold | `#C9A56A` (Antique Gold) | `#7A5618` (Warm Bronze) | Aksen, badge, ornamen, level |
+| Text | `#E8E4DD` (Ivory) | `#1C1917` (Ink Dark) | Teks utama |
+| Muted | `#8B909C` | `#5C554C` | Teks sekunder dan metadata |
 
-Warna aksen kategori: Sains `#F0A25A`, Teknologi `#6EB6FF`, Sejarah `#E0B86A`,
-Logika `#B79CFF`, dan Umum `#6FD0A0`.
+Warna aksen kategori menyesuaikan mode tema agar selalu memenuhi kontras WCAG ≥ 4,5:1:
+- **Gelap**: Sains `#F0A25A`, Teknologi `#6EB6FF`, Sejarah `#E0B86A`, Logika `#B79CFF`, Umum `#6FD0A0`.
+- **Terang**: Sains `#8C4A0E`, Teknologi `#1D5699`, Sejarah `#7A5618`, Logika `#563999`, Umum `#176B45`.
 
 ## Struktur Proyek
 
@@ -329,9 +356,7 @@ dijalankan (`AppServices.create()` di `lib/main.dart`):
 Logout menghapus sesi tersimpan, tetapi riwayat, XP, dan kuis tersimpan tetap
 ada agar progres belajar tidak hilang ketika pengguna masuk kembali.
 
-Untuk mengosongkan semuanya, jalankan aplikasi di perangkat tanpa data lama
-(atau hapus data aplikasi dari pengaturan sistem). Menu "Hapus semua data"
-belum tersedia karena termasuk lingkup U-08.
+Untuk mengosongkan semuanya, buka menu **Profil > Pengaturan > Hapus Semua Data**, yang akan menghapus akun, sesi, riwayat, XP, dan kuis tersimpan di perangkat ini.
 
 Simulasi "menutup lalu membuka aplikasi" tercakup oleh
 `test/data/persistence_test.dart`, yang menutup kotak Hive, membukanya kembali
@@ -525,10 +550,11 @@ dan 2,0× tanpa luber.
 - [x] Profil, badge, dan pengaturan
 - [x] Responsif untuk web/tablet
 - [x] Branding ikon, splash native, dan metadata web
+- [x] Dual-theme: Mode Gelap, Mode Terang, dan Sistem (Bonus Poin 1)
+- [x] Adaptive & Responsive Design untuk ponsel, tablet, dan web (Bonus Poin 2)
 - [x] Penyimpanan permanen lokal (shared_preferences + Hive)
 - [x] Bank soal dari aset JSON berversi + parser/validator (D-02)
 - [x] Akun lokal dengan kata sandi ter-hash PBKDF2 (D-03 jalur A)
-- [ ] Integrasi backend, akun online, dan papan peringkat (D-03 jalur B)
 
 ## Kontribusi
 
