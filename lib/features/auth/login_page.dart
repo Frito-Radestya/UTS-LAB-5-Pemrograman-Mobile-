@@ -99,8 +99,11 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final size = MediaQuery.sizeOf(context);
     final w = size.width;
+    final toriiW = (w * 0.42).clamp(150.0, 220.0);
+    final toriiH = toriiW * (0.35 / 0.42);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -131,9 +134,9 @@ class _LoginPageState extends State<LoginPage> {
           ),
           // Torii – responsive horizontal centre
           Positioned(
-            left: w * 0.28,
+            left: (w - toriiW) / 2,
             top: 110,
-            child: ToriiArt(width: w * 0.42, height: w * 0.35, opacity: 0.24),
+            child: ToriiArt(width: toriiW, height: toriiH, opacity: 0.24),
           ),
           // Animated sakura petals
           AnimatedSakuraPetal(

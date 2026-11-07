@@ -61,6 +61,7 @@ class _RiwayatPageState extends State<RiwayatPage> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final history = context.watch<HistoryController>();
     final items = _visible(history, DateTime.now());
 

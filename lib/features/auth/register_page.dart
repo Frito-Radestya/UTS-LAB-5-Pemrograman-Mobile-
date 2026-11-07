@@ -135,9 +135,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final size = MediaQuery.sizeOf(context);
     final w = size.width;
     final h = size.height;
+    final toriiW = (w * 0.60).clamp(200.0, 280.0);
+    final toriiH = toriiW * (0.50 / 0.60);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -180,9 +183,9 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           // Torii watermark at bottom
           Positioned(
-            left: w * 0.25,
+            left: (w - toriiW) / 2,
             bottom: h * 0.04,
-            child: ToriiArt(width: w * 0.60, height: w * 0.50, opacity: 0.28),
+            child: ToriiArt(width: toriiW, height: toriiH, opacity: 0.28),
           ),
           // Animated lantern
           Positioned(

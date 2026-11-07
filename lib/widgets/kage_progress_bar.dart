@@ -23,6 +23,7 @@ class KageProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final label = semanticLabel;
     if (label != null) {
       return Semantics(

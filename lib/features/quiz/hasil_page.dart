@@ -21,6 +21,7 @@ class HasilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final quiz = context.watch<QuizController>();
     final r = quiz.lastResult;
     if (r == null) {
@@ -119,7 +120,7 @@ class HasilPage extends StatelessWidget {
       body: Stack(
         children: [
           // Top radial glow
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             top: 0,
@@ -127,14 +128,16 @@ class HasilPage extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  center: Alignment(0, -0.44),
+                  center: const Alignment(0, -0.44),
                   radius: 0.9,
                   colors: [
-                    Color(0x73B9232C),
-                    Color(0x405A1428),
-                    Color(0x000B0D12),
+                    const Color(0x73B9232C),
+                    AppColors.isLight
+                        ? const Color(0x33D6958A)
+                        : const Color(0x405A1428),
+                    AppColors.background.withValues(alpha: 0),
                   ],
-                  stops: [0, 0.38, 0.72],
+                  stops: const [0, 0.38, 0.72],
                 ),
               ),
             ),
@@ -438,15 +441,20 @@ class _HasilEmblem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     return SizedBox(
       width: 160,
       height: 160,
-      child: CustomPaint(painter: _EmblemPainter()),
+      child: CustomPaint(painter: _EmblemPainter(isLight: AppColors.isLight)),
     );
   }
 }
 
 class _EmblemPainter extends CustomPainter {
+  const _EmblemPainter({required this.isLight});
+
+  final bool isLight;
+
   @override
   void paint(Canvas canvas, Size size) {
     final c = Offset(size.width / 2, size.height / 2);
@@ -454,7 +462,7 @@ class _EmblemPainter extends CustomPainter {
       c,
       74,
       Paint()
-        ..color = const Color(0xFF1A0E12)
+        ..color = AppColors.emblemFill
         ..style = PaintingStyle.fill,
     );
     canvas.drawCircle(
@@ -493,5 +501,6 @@ class _EmblemPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _EmblemPainter oldDelegate) =>
+      oldDelegate.isLight != isLight;
 }

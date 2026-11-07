@@ -14,6 +14,7 @@ class ProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final auth = context.watch<AuthController>();
     final history = context.watch<HistoryController>();
     final progress = context.watch<ProgressController>();
@@ -135,11 +136,13 @@ class ProfilPage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text(
-                              'Menuju Level ${progress.level + 1}',
-                              style: AppTextStyles.bodySmallMuted,
+                            Expanded(
+                              child: Text(
+                                'Menuju Level ${progress.level + 1}',
+                                style: AppTextStyles.bodySmallMuted,
+                              ),
                             ),
-                            const Spacer(),
+                            const SizedBox(width: 8),
                             Text(
                               '${_xp(progress.xp)} / ${_xp(progress.nextLevelXp)} XP',
                               style: AppTextStyles.bodySmallStrongGold,

@@ -86,6 +86,7 @@ class _KategoriPageState extends State<KategoriPage> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final bank = context.read<QuizRepository>();
     final history = context.watch<HistoryController>();
     final items = _visible(bank, history);

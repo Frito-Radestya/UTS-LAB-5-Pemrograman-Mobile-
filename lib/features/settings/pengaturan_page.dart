@@ -21,6 +21,7 @@ class PengaturanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final auth = context.watch<AuthController>();
     final settings = context.watch<SettingsController>();
 
@@ -313,33 +314,36 @@ class PengaturanPage extends StatelessWidget {
       toggled: value,
       label: '$label, ${value ? 'aktif' : 'nonaktif'}, $subtitle',
       excludeSemantics: true,
-      child: ConstrainedBox(
-        // Tinggi minimum, bukan tetap, agar teks tetap utuh pada skala font
-        // sistem yang besar (U-02).
-        constraints: const BoxConstraints(minHeight: 56),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-          child: Row(
-            children: [
-              Icon(icon, size: 20, color: AppColors.gold),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(label, style: AppTextStyles.bodyLarge),
-                    Text(subtitle, style: AppTextStyles.captionMuted),
-                  ],
+      child: KageTappable(
+        onTap: () => onChanged(!value),
+        child: ConstrainedBox(
+          // Tinggi minimum, bukan tetap, agar teks tetap utuh pada skala font
+          // sistem yang besar (U-02).
+          constraints: const BoxConstraints(minHeight: 56),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            child: Row(
+              children: [
+                Icon(icon, size: 20, color: AppColors.gold),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(label, style: AppTextStyles.bodyLarge),
+                      Text(subtitle, style: AppTextStyles.captionMuted),
+                    ],
+                  ),
                 ),
-              ),
-              Switch(
-                value: value,
-                onChanged: onChanged,
-                activeThumbColor: AppColors.gold,
-                activeTrackColor: AppColors.gold.withValues(alpha: 0.35),
-              ),
-            ],
+                Switch(
+                  value: value,
+                  onChanged: onChanged,
+                  activeThumbColor: AppColors.gold,
+                  activeTrackColor: AppColors.gold.withValues(alpha: 0.35),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -356,35 +360,6 @@ class PengaturanPage extends StatelessWidget {
       _snack(context, 'Pengingat harian dimatikan.');
       return;
     }
-
-    // Izin dijelaskan lebih dulu supaya pengguna tahu kenapa diminta (U-08).
-    final explained = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: AppColors.borderStrong),
-        ),
-        title: Text('Izinkan notifikasi?', style: AppTextStyles.titleLarge),
-        content: Text(
-          'KAGE memakai notifikasi untuk mengingatkanmu belajar satu kali '
-          'sehari. Kamu bisa mematikannya kapan saja di halaman ini.',
-          style: AppTextStyles.bodyRelaxedSoft,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Nanti', style: AppTextStyles.labelMuted),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Lanjutkan', style: AppTextStyles.labelPrimary),
-          ),
-        ],
-      ),
-    );
-    if (explained != true || !context.mounted) return;
 
     final granted = await settings.enableNotifications();
     if (!context.mounted) return;
@@ -407,6 +382,12 @@ class PengaturanPage extends StatelessWidget {
     );
     if (picked == null || !context.mounted) return;
     await settings.setReminderTime(picked.hour, picked.minute);
+    if (!settings.notifications) {
+      await settings.enableNotifications(
+        hour: picked.hour,
+        minute: picked.minute,
+      );
+    }
     if (!context.mounted) return;
     _snack(context, 'Pengingat diatur pukul ${settings.reminderLabel}.');
   }
@@ -790,7 +771,10 @@ class PengaturanPage extends StatelessWidget {
 
   void _snack(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: AppColors.surface),
+      SnackBar(
+        content: Text(message, style: AppTextStyles.body),
+        backgroundColor: AppColors.surface,
+      ),
     );
   }
 }

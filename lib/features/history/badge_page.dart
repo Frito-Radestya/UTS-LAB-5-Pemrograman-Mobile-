@@ -13,6 +13,7 @@ class BadgePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final badges = context.watch<HistoryController>().badges;
     final earned = badges.where((b) => b.earned).length;
 
@@ -20,7 +21,7 @@ class BadgePage extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: Stack(
         children: [
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             top: 0,
@@ -28,10 +29,13 @@ class BadgePage extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  center: Alignment(0, -1),
+                  center: const Alignment(0, -1),
                   radius: 1.1,
-                  colors: [Color(0x38C9A56A), Color(0x000B0D12)],
-                  stops: [0, 0.7],
+                  colors: [
+                    const Color(0x38C9A56A),
+                    AppColors.background.withValues(alpha: 0),
+                  ],
+                  stops: const [0, 0.7],
                 ),
               ),
             ),
@@ -79,11 +83,13 @@ class BadgePage extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Text(
-                                    'Koleksi badge',
-                                    style: AppTextStyles.bodyMuted,
+                                  Expanded(
+                                    child: Text(
+                                      'Koleksi badge',
+                                      style: AppTextStyles.bodyMuted,
+                                    ),
                                   ),
-                                  const Spacer(),
+                                  const SizedBox(width: 8),
                                   Text(
                                     '$earned dari ${badges.length}',
                                     style: AppTextStyles.labelGold,

@@ -19,6 +19,7 @@ class KageWordmark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     return Padding(
       padding: EdgeInsets.only(left: paddingLeft),
       child: ShaderMask(

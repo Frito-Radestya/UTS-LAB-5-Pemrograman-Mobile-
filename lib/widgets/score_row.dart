@@ -15,6 +15,7 @@ class ScoreRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final cat = context.read<QuizRepository>().categoryById(result.categoryId);
     final date =
         '${result.playedAt.day.toString().padLeft(2, '0')} ${_month(result.playedAt.month)} ${result.playedAt.year}';
