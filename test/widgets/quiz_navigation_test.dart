@@ -60,6 +60,7 @@ void main() {
 
       expect(app.quiz.resume, isNotNull, reason: 'progres harus tersimpan');
       expect(app.quiz.resume!.answers.first, 0);
+      expect(find.text('Lanjutkan Petualangan'), findsOneWidget);
     });
 
     testWidgets('indikator soal menghitung soal terjawab', (tester) async {

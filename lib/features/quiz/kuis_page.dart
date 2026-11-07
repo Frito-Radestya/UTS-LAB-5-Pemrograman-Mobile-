@@ -186,6 +186,8 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
               ),
             ),
           ),
+          // Falling sakura petals
+          const SakuraPetalDrift(),
           // Main scrollable content
           SafeArea(
             child: Column(
@@ -366,6 +368,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
   }
 
   Future<void> _confirmExit(BuildContext context, QuizController quiz) async {
+    _timerController?.stop();
     final shouldLeave = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -393,14 +396,11 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
     );
     if (shouldLeave == true && context.mounted) {
       quiz.saveProgress();
-      setState(() => _leaving = true);
-      // Halaman kuis bisa dibuka langsung dari resume tanpa tumpukan rute,
-      // jadi kembali ke Beranda bila tidak ada yang bisa di-pop.
-      if (context.canPop()) {
-        context.pop();
-      } else {
-        context.go('/beranda');
-      }
+      _leaving = true;
+      context.go('/beranda');
+    } else if (context.mounted && !quiz.currentQuestionLocked) {
+      final settings = context.read<SettingsController>();
+      _startTimer(quiz, settings, quiz.selectedDifficulty);
     }
   }
 
