@@ -59,6 +59,7 @@ class BantuanPage extends StatelessWidget {
           const TopWash(
             height: 200,
           ),
+          const SakuraPetalDrift(),
           SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

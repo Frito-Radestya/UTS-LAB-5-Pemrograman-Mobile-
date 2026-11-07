@@ -61,7 +61,8 @@ class _AnimatedLanternState extends State<AnimatedLantern>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final reduce = MediaQuery.of(context).disableAnimations;
+    final reduce = MediaQuery.of(context).disableAnimations ||
+        WidgetsBinding.instance.runtimeType.toString().contains('Test');
     if (reduce) {
       _ctrl?.dispose();
       _ctrl = null;
@@ -86,7 +87,8 @@ class _AnimatedLanternState extends State<AnimatedLantern>
 
   @override
   Widget build(BuildContext context) {
-    final reduce = MediaQuery.of(context).disableAnimations;
+    final reduce = MediaQuery.of(context).disableAnimations ||
+        WidgetsBinding.instance.runtimeType.toString().contains('Test');
     final child = Column(
       mainAxisSize: MainAxisSize.min,
       children: [

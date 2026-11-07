@@ -63,6 +63,7 @@ class DetailKategoriPage extends StatelessWidget {
                   child: const SizedBox.expand(),
                 ),
                 StarField(height: headerH),
+                const SakuraPetalDrift(count: 3),
                 Positioned.fill(
                   top: 52,
                   child: Center(

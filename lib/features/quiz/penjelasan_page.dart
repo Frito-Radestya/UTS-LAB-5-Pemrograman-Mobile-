@@ -71,17 +71,8 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
               ),
             ),
           ),
-          // Subtle animated petal accent
-          const AnimatedSakuraPetal(
-            left: 12,
-            top: 60,
-            width: 10,
-            height: 7,
-            angle: 40,
-            opacity: 0.55,
-            duration: Duration(seconds: 6),
-            delayFraction: 0.3,
-          ),
+          // Subtle animated sakura drift
+          const SakuraPetalDrift(),
           SafeArea(
             child: Column(
               children: [
