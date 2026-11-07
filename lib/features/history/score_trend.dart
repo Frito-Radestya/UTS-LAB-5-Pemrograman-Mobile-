@@ -20,6 +20,7 @@ class ScoreTrendChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     if (results.isEmpty) return const SizedBox.shrink();
     final ordered = results.take(maxBars).toList().reversed.toList();
     final first = ordered.first.score;

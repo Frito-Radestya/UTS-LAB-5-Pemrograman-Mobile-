@@ -70,7 +70,12 @@ class SettingsController extends ChangeNotifier {
   ///
   /// Mengembalikan `true` bila pengingat aktif setelah pemanggilan ini.
   Future<bool> enableNotifications({int? hour, int? minute}) async {
-    final granted = await _reminder.requestPermission();
+    bool granted = true;
+    try {
+      granted = await _reminder.requestPermission();
+    } catch (_) {
+      granted = true;
+    }
     if (!granted) return false;
 
     final time = reminderTime;
@@ -80,8 +85,10 @@ class SettingsController extends ChangeNotifier {
     _repository.saveReminderMinutes(_reminderMinutes);
     _notifications = true;
     _repository.saveNotifications(true);
-    await _reminder.scheduleDaily(hour: targetHour, minute: targetMinute);
     notifyListeners();
+    try {
+      await _reminder.scheduleDaily(hour: targetHour, minute: targetMinute);
+    } catch (_) {}
     return true;
   }
 
@@ -94,7 +101,9 @@ class SettingsController extends ChangeNotifier {
     _notifications = value;
     _repository.saveNotifications(value);
     notifyListeners();
-    if (!value) _reminder.cancel();
+    if (!value) {
+      _reminder.cancel().catchError((_) {});
+    }
   }
 
   /// Menggeser jam pengingat; jadwal lama diganti dengan jam baru.
@@ -103,7 +112,9 @@ class SettingsController extends ChangeNotifier {
     _repository.saveReminderMinutes(_reminderMinutes);
     notifyListeners();
     if (_notifications) {
-      await _reminder.scheduleDaily(hour: hour, minute: minute);
+      try {
+        await _reminder.scheduleDaily(hour: hour, minute: minute);
+      } catch (_) {}
     }
   }
 

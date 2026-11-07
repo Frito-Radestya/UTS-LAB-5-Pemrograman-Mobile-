@@ -30,6 +30,7 @@ class _PenjelasanPageState extends State<PenjelasanPage> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final quiz = context.watch<QuizController>();
     final q = quiz.currentQuestion;
     if (q == null) {

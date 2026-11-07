@@ -38,9 +38,12 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final size = MediaQuery.sizeOf(context);
     final w = size.width;
     final h = size.height;
+    final toriiW = (w * 0.63).clamp(220.0, 320.0);
+    final toriiH = toriiW * (0.53 / 0.63);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -108,9 +111,9 @@ class _SplashPageState extends State<SplashPage>
               ),
               // Torii
               Positioned(
-                left: w * 0.18,
+                left: (w - toriiW) / 2,
                 top: h * 0.20,
-                child: ToriiArt(width: w * 0.63, height: w * 0.53),
+                child: ToriiArt(width: toriiW, height: toriiH),
               ),
               // Animated lanterns
               Positioned(

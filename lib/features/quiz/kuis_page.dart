@@ -78,6 +78,7 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final quiz = context.watch<QuizController>();
     final settings = context.watch<SettingsController>();
     final q = quiz.currentQuestion;
@@ -237,8 +238,9 @@ class _KuisPageState extends State<KuisPage> with TickerProviderStateMixin {
                             quiz.saveProgress();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: const Text(
+                                content: Text(
                                   'Progres disimpan. Lanjutkan kapan saja dari Beranda.',
+                                  style: AppTextStyles.body,
                                 ),
                                 backgroundColor: AppColors.surface,
                               ),

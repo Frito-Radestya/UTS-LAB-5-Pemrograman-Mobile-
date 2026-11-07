@@ -85,55 +85,71 @@ class LocalReminderService implements ReminderService {
 
   @override
   Future<bool> requestPermission() async {
-    await _ensureInitialized();
-    final android = _plugin
-        .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin
-        >();
-    if (android != null) {
-      return await android.requestNotificationsPermission() ?? false;
+    try {
+      await _ensureInitialized();
+      final android = _plugin
+          .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin
+          >();
+      if (android != null) {
+        return await android.requestNotificationsPermission() ?? false;
+      }
+      final ios = _plugin
+          .resolvePlatformSpecificImplementation<
+            IOSFlutterLocalNotificationsPlugin
+          >();
+      if (ios != null) {
+        return await ios.requestPermissions(
+              alert: true,
+              badge: true,
+              sound: true,
+            ) ??
+            false;
+      }
+      // Platform lain (web/desktop) tidak memerlukan izin notifikasi.
+      return true;
+    } catch (_) {
+      return true;
     }
-    final ios = _plugin
-        .resolvePlatformSpecificImplementation<
-          IOSFlutterLocalNotificationsPlugin
-        >();
-    if (ios != null) {
-      return await ios.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          ) ??
-          false;
-    }
-    // Platform lain (web/desktop) tidak memerlukan izin notifikasi.
-    return true;
   }
 
   @override
   Future<void> scheduleDaily({required int hour, required int minute}) async {
-    await _ensureInitialized();
-    await _plugin.zonedSchedule(
-      id: notificationId,
-      title: _title,
-      body: _body,
-      scheduledDate: _nextOccurrence(hour: hour, minute: minute),
-      notificationDetails: const NotificationDetails(
-        android: AndroidNotificationDetails(
-          _channelId,
-          'Pengingat belajar',
-          channelDescription: 'Pengingat harian untuk mengerjakan satu kuis.',
-          importance: Importance.defaultImportance,
-          priority: Priority.defaultPriority,
+    try {
+      await _ensureInitialized();
+      await _plugin.zonedSchedule(
+        id: notificationId,
+        title: _title,
+        body: _body,
+        scheduledDate: _nextOccurrence(hour: hour, minute: minute),
+        notificationDetails: const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _channelId,
+            'Pengingat belajar',
+            channelDescription:
+                'Pengingat harian untuk mengerjakan satu kuis.',
+            importance: Importance.defaultImportance,
+            priority: Priority.defaultPriority,
+          ),
+          iOS: DarwinNotificationDetails(),
         ),
-        iOS: DarwinNotificationDetails(),
-      ),
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      matchDateTimeComponents: DateTimeComponents.time,
-    );
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.time,
+      );
+    } catch (_) {
+      // Abaikan bila platform (mis. browser web / desktop) belum mendukung
+      // penjadwalan notifikasi lokal agar state UI tetap responsif.
+    }
   }
 
   @override
-  Future<void> cancel() => _plugin.cancel(id: notificationId);
+  Future<void> cancel() async {
+    try {
+      await _plugin.cancel(id: notificationId);
+    } catch (_) {
+      // Abaikan bila platform tidak mendukung pembatalan notifikasi lokal.
+    }
+  }
 
   /// Waktu setempat berikutnya pada [hour]:[minute].
   ///

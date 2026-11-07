@@ -19,6 +19,7 @@ class OutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final enabled = onTap != null;
     return Semantics(
       button: true,

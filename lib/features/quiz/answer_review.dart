@@ -22,6 +22,7 @@ class AnswerReviewPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     if (reviews.isEmpty) return const SizedBox.shrink();
     // Material, bukan Container, agar perluasan tile tetap menggambar latarnya
     // dengan benar.

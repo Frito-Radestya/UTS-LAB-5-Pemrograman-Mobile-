@@ -12,6 +12,7 @@ class BackIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     return Semantics(
       button: true,
       label: label,

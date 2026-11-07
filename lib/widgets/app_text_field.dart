@@ -66,6 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final hasError = widget.errorText != null;
     final focused = _focusNode.hasFocus;
     final borderColor = hasError

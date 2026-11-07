@@ -9,19 +9,24 @@ class StarField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     return SizedBox(
       height: height,
       width: double.infinity,
-      child: CustomPaint(painter: _StarPainter()),
+      child: CustomPaint(painter: _StarPainter(isLight: AppColors.isLight)),
     );
   }
 }
 
 class _StarPainter extends CustomPainter {
+  const _StarPainter({required this.isLight});
+
+  final bool isLight;
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.isLight ? const Color(0x4D7A5618) : Colors.white;
+      ..color = isLight ? const Color(0x4D7A5618) : Colors.white;
     const stars = [
       Offset(30, 60),
       Offset(90, 130),
@@ -34,11 +39,13 @@ class _StarPainter extends CustomPainter {
       Offset(330, 60),
       Offset(300, 190),
     ];
+    final scaleX = size.width > 390 ? size.width / 390.0 : 1.0;
     for (final s in stars) {
-      canvas.drawCircle(s, 1.1, paint);
+      canvas.drawCircle(Offset(s.dx * scaleX, s.dy), 1.1, paint);
     }
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _StarPainter oldDelegate) =>
+      oldDelegate.isLight != isLight;
 }

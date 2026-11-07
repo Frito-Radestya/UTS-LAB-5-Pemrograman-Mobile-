@@ -41,7 +41,7 @@ class AppServices {
     auth = AuthController(repository: this.authRepository);
     settings = SettingsController(
       repository: this.settingsRepository,
-      reminder: reminderService,
+      reminder: this.reminderService,
     );
     history = HistoryController(repository: this.historyRepository);
     progress = ProgressController(repository: this.progressRepository);
