@@ -341,6 +341,21 @@ Build web untuk produksi:
 flutter build web --release
 ```
 
+### Deploy ke Vercel
+
+Proyek ini sudah dilengkapi konfigurasi `vercel.json` dan skrip build otomatis `vercel-build.sh` (termasuk *URL rewrites* ke `/index.html` agar tidak terjadi error 404 saat pengguna merefresh halaman SPA):
+
+1. **Otomatis via GitHub (Rekomendasi)**:
+   - Buka [vercel.com](https://vercel.com) dan masuk dengan akun Anda.
+   - Klik **Add New... > Project**, lalu pilih repositori `UTS-LAB-5-Pemrograman-Mobile-`.
+   - Vercel akan otomatis mendeteksi `vercel.json` (Build command: `bash vercel-build.sh`, Output directory: `build/web`).
+   - Klik **Deploy**. Setiap ada push baru ke branch `main`, Vercel akan otomatis meng-update web deployment Anda!
+2. **Manual via Vercel CLI**:
+   ```bash
+   npx vercel login
+   npx vercel --prod
+   ```
+
 ## Akun & Data
 
 Autentikasi berjalan **sepenuhnya di perangkat**. Registrasi menyimpan akun
